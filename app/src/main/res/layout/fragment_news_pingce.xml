@@ -2,12 +2,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              android:gravity="center"
               android:orientation="vertical">
 
+    <Button
+        android:id="@+id/fragment_news_pingce_zoom_in_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="放大"/>
+
+    <Button
+        android:id="@+id/fragment_news_pingce_zoom_out_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="缩小"/>
+
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/fragment_news_pingce_test_tv"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="pingce"/>
+        android:text="测试"/>
 
 </LinearLayout>
