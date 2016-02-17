@@ -26,10 +26,10 @@
             android:text="搜索"/>
     </LinearLayout>
 
+    <!--必须设置高为固定值,否则不显示-->
     <android.support.v4.view.ViewPager
         android:id="@+id/fragment_news_public_listview_header_container_vp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#00f"/>
+        android:layout_height="200dp"/>
 
 </LinearLayout>

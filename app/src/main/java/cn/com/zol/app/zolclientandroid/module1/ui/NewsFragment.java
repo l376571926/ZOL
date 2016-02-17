@@ -5,10 +5,15 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.DisplayMetrics;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
+import com.lidroid.xutils.util.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +44,10 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
     private RadioButton zbRbtn;
     private HorizontalScrollView horizontalScrollView;
     private ImageView titleRightIv;
+    /**
+     * 上一个被点击的RadioButton
+     */
+    private RadioButton preRadioButton;
 
     /**
      * 初始化布局
@@ -60,7 +69,6 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
         horizontalScrollView = (HorizontalScrollView) getActivity().findViewById(R.id.fragment_news_titlebar_hsv);
         radioGroup = (RadioGroup) getActivity().findViewById(R.id.fragment_news_titlebar_rg);
         ttRbtn = (RadioButton) getActivity().findViewById(R.id.fragment_news_titlebar_tt_rb);
-        ttRbtn.setChecked(true);
         rbRbtn = (RadioButton) getActivity().findViewById(R.id.fragment_news_titlebar_rb_rb);
         dyRbtn = (RadioButton) getActivity().findViewById(R.id.fragment_news_titlebar_dy_rb);
         xwRbtn = (RadioButton) getActivity().findViewById(R.id.fragment_news_titlebar_xw_rb);
@@ -192,13 +200,15 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
 //        LogUtils.e("平移点击的按钮到屏幕中间位置并高亮,changeTabTextColorAndLocation:" + radioGroup.toString());
         for (int i = 0; i < childCount; i++)
         {
-            RadioButton childRadioButton = (RadioButton) radioGroup.getChildAt(i);
+            RadioButton radioButton = (RadioButton) radioGroup.getChildAt(i);
             if (position == i)
             {
-                childRadioButton.setTextColor(Color.YELLOW);
+                zoomIn(radioButton);
+                radioButton.setTextColor(Color.YELLOW);
             } else
             {
-                childRadioButton.setTextColor(Color.RED);
+//                zoomOut(radioButton);
+                radioButton.setTextColor(Color.RED);
             }
         }
 
@@ -225,5 +235,53 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
 //        LogUtils.e("偏移量offsetX=" + offsetX);
         horizontalScrollView.smoothScrollTo(offsetX, 0);
 
+    }
+
+    /**
+     * 放大动画
+     *
+     * @param view
+     */
+    private void zoomIn(View view)
+    {
+        ScaleAnimation animation = new ScaleAnimation(1.0f
+                , 1.4f
+                , 1.0f
+                , 1.4f
+                , Animation.RELATIVE_TO_SELF
+                , 0.5f
+                , Animation.RELATIVE_TO_SELF
+                , 0.5f);
+        animation.setDuration(500);
+//        animation.setRepeatCount(2);
+        animation.setFillAfter(true);
+//        animation.setStartOffset(1000);
+        view.setAnimation(animation);
+        view.startAnimation(animation);
+        LogUtils.e("控件放大执行完毕!");
+    }
+
+    /**
+     * 缩小动画
+     *
+     * @param view
+     */
+    private void zoomOut(View view)
+    {
+        ScaleAnimation animation = new ScaleAnimation(1.4f
+                , 1.0f
+                , 1.4f
+                , 1.0f
+                , Animation.RELATIVE_TO_SELF
+                , 0.5f
+                , Animation.RELATIVE_TO_SELF
+                , 0.5f);
+        animation.setDuration(500);
+//        animation.setRepeatCount(2);
+        animation.setFillAfter(true);
+//        animation.setStartOffset(1000);
+        view.setAnimation(animation);
+        view.startAnimation(animation);
+        LogUtils.e("控件缩小执行完毕!");
     }
 }

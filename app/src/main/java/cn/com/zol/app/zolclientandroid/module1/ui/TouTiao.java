@@ -7,29 +7,21 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.StringRequest;
-import com.lidroid.xutils.util.LogUtils;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import cn.com.zol.app.zolclientandroid.R;
+import cn.com.zol.app.zolclientandroid.other.MyApplication;
 import cn.com.zol.app.zolclientandroid.other.adapter.PublicItemAdapter;
 import cn.com.zol.app.zolclientandroid.other.bean.PublicListTItem;
-import cn.com.zol.app.zolclientandroid.other.MyApplication;
 import cn.com.zol.app.zolclientandroid.other.utils.PublicStringRequestUtils;
 
 /**
@@ -88,12 +80,7 @@ public class TouTiao extends ListFragment implements PublicStringRequestUtils.On
     {
         View inflate = getActivity().getLayoutInflater().inflate(R.layout.fragment_news_public_listview_header, null);
 
-//        ViewPager viewPager = new ViewPager(getActivity());
         ViewPager viewPager = ((ViewPager) inflate.findViewById(R.id.fragment_news_public_listview_header_container_vp));
-        /**
-         * 必须设置高为固定值,否则不显示
-         */
-//        viewPager.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 400));
 
         viewPager.setAdapter(bannerAdapter);
         getListView().addHeaderView(inflate);
