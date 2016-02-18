@@ -1,0 +1,129 @@
+全国省市县数据接口
+http://lib3.wap.zol.com.cn/index.php?c=Android_Public_City&noParam=1&imei=352284040670808
+GET
+c			Android_Public_City
+noParam		1
+imei		352284040670808
+
+更新接口
+http://lib.wap.zol.com.cn/vesion_up.php?type=3
+GET
+type		3
+
+启动广告
+http://lib.wap.zol.com.cn/ipj/wap_launch_logo_index.php?os=2
+GET
+OS			2
+
+资讯标题栏接口(不包含订阅)
+http://lib.wap.zol.com.cn/ipj/docList/?v=7.0&class_id=0&page=1&vs=and420&retina=1&last_time=2016-01-29%2010:05
+GET
+v			7.0(必要)
+class_id	0头条/8热榜/1新闻/2评测/74手机/7数码/210电脑/165攒机/353外设/6导购/15直播(必要)
+page		1
+vs			and420
+retina		1
+last_time	2016-01-29%2010:05
+
+订阅
+http://lib.wap.zol.com.cn/ipj/rss/rssList/?v=3.0&imei=352284040670808
+POST
+{
+	"lisType": "2",
+	"version": "and420"
+}
+
+热榜
+http://lib.wap.zol.com.cn/ipj/docList/?v=7.0&class_id=8&page=1&vs=and420&retina=1&hotLoop=2016-01-27%2011:20:02
+GET
+v			7.0(必要)
+class_id	0头条/8热榜/1新闻/2评测/74手机/7数码/210电脑/165攒机/353外设/6导购/15直播(必要)
+page		1
+vs			and420
+retina		1
+三日/一周/一月热榜
+hotLoop		2016-01-27 11:20:02/2016-01-23 11/2015-12-30 11(当前时间20160129 11:23)
+分类热榜:苹果/手机/攒机/评测/数码...
+hotClass	255/74/165
+
+
+论坛/逛逛/热门活动
+http://lib.wap.zol.com.cn/bbs/client/activity.php?status=0&page=1&preNum=3&vs=and420
+GET
+status		0
+page		1
+preNum		3
+vs			and420
+
+论坛/逛逛/今日热贴
+http://lib.wap.zol.com.cn/bbs/client/index_gg.php?page=1&userid=&vs=and420
+GET
+page		1
+userid		
+vs			and420
+
+论坛/精选
+http://lib.wap.zol.com.cn/bbs/client/index_jingxuan.php?page=1&vs=and420
+GET
+page		1
+vs			and420
+
+论坛/全部论坛
+http://lib.wap.zol.com.cn/bbs/client/index_board.php?vs=and420
+GET
+vs			and420
+
+查报价
+http://lib3.wap.zol.com.cn/index.php?c=Android_39o_SubcateList&noParam=1&vs=and420
+GET
+c			Android_39o_SubcateList
+noParam		1
+vs			and420
+
+查报价左侧菜单列表
+http://lib3.wap.zol.com.cn/index.php?c=Android_38o_ManuList&subcateId=57&noParam=1&vs=and420
+GET
+c			Android_38o_ManuList
+subcateId	57/16/702/790/27/827/688/641/227/14/590/432/829/591/804/101/636/792(不带二级菜单)
+noParam		1
+vs			and420
+
+查报价左侧菜单下二级菜单
+http://lib3.wap.zol.com.cn/index.php?c=Advanced_List_V1&subcateId=15&orderBy=1&page=1&locationId=1
+GET
+c			Advanced_List_V1(必要)
+subcateId	15
+priceId		0/500/1000/1500/2000/3000/5000按价格筛选(自定义价格用"-"连接)
+orderBy		1热门/14新品/4价高/3价低/5点评/11销量
+page		1
+paramVal	s6434-s6118-s5732-s5556-s5557-s4409-s4411-s4410-s4412-s2329-s6315-s3936-s3935-s2328-s6105-s4297-s3596-p23625-p23622-p25465-p26704-p23660-p23658-p23659-s5114-s2333-s2332-s2331-s1978-s5113-p24016-p23548-p24547-p23547-p19997-p18588-p24097-p16068
+locationId	1
+
+查报价搜索参数列表(品牌)
+http://lib3.wap.zol.com.cn/index.php?c=Android_38o_SearchParam&subcateId=702
+GET
+c			Android_38o_SearchParam
+subcateId	702
+
+放心购横幅广告
+http://api.zol.com/index.php?c=Tuan_AppReturn&a=NewFocusPic
+GET
+c			Tuan_AppReturn
+a			NewFocusPic
+vs			and420(非必要)
+
+放心购
+http://api.zol.com/index.php?c=Tuan_AppReturn&a=NewGoodsList&vs=and420&page=1
+GET
+c			Tuan_AppReturn
+a			NewGoodsList
+vs			and420
+page		1
+
+
+
+
+
+
+
+
