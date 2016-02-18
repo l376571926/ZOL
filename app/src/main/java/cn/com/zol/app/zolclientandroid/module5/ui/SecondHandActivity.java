@@ -27,19 +27,23 @@ public class SecondHandActivity extends Activity {
     private void initView() {
         webView = (WebView) findViewById(R.id.second_hand_web);
         webProgress = (ProgressBar) findViewById(R.id.second_web_progbar);
-        webView.loadUrl(WEB_URL);
     }
 
+
     private void initEvent() {
+
         webView.setWebChromeClient(new WebChromeClient(){
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
                 webProgress.setVisibility(View.VISIBLE);
                 webProgress.setVisibility(newProgress);
                 if (newProgress == 100){
-                    webProgress.setVisibility(View.INVISIBLE);
+                    webProgress.setVisibility(View.GONE);
                 }
             }
         });
+        webView.loadUrl(WEB_URL);
+
+
     }
 }

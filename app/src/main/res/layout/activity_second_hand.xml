@@ -37,8 +37,8 @@
     <ProgressBar
         android:id="@+id/second_web_progbar"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:visibility="invisible"
+        android:layout_height="5dp"
+        android:visibility="gone"
         style="?android:attr/progressBarStyleHorizontal"
         />
 
