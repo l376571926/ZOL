@@ -23,9 +23,6 @@
         <activity android:name=".other.ui.HomeActivity"/>
         <activity android:name=".module5.ui.LoginActivity"/>
         <activity android:name=".module5.ui.RegisterActivity"/>
-        <activity android:name=".module5.ui.RecommendActivity" />
-        <activity android:name=".module5.ui.SecondHandActivity" />
-        <activity android:name=".module5.ui.AppSettingActivity"/>
     </application>
 
 </manifest>
