@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/bg"
+              android:orientation="vertical">
+    <!--ToolBar容器-->
+    <!--<FrameLayout
+        android:id="@+id/activity_base_titlebar_container_fl"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#1a7fcf"/>-->
+
+    <!--子类布局的container-->
+    <!--如果没有其他控件设置权重,那么设置权重的这个控件就会填充满剩余的空间-->
+    <FrameLayout
+        android:id="@+id/activity_base_content_container_fl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"/>
+
+    <!--底部导航栏-->
+    <RadioGroup
+        android:id="@+id/activity_base_buttons_rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <RadioButton
+            android:id="@+id/activity_base_news_rb"
+            style="@style/activity_base_radio_button"
+            android:checked="true"
+            android:drawableTop="@drawable/selector_activity_base_news_button"
+            android:text="@string/news"/>
+
+        <RadioButton
+            android:id="@+id/activity_base_price_rb"
+            style="@style/activity_base_radio_button"
+            android:drawableTop="@drawable/selector_activity_base_price_button"
+            android:text="@string/price"/>
+
+        <RadioButton
+            android:id="@+id/activity_base_bbs_rb"
+            style="@style/activity_base_radio_button"
+            android:drawableTop="@drawable/selector_activity_base_bbs_button"
+            android:text="@string/bbs"/>
+
+        <RadioButton
+            android:id="@+id/activity_base_shop_rb"
+            style="@style/activity_base_radio_button"
+            android:drawableTop="@drawable/selector_activity_base_electricity_button"
+            android:text="@string/electricity"/>
+
+        <RadioButton
+            android:id="@+id/activity_base_user_rb"
+            style="@style/activity_base_radio_button"
+            android:drawableTop="@drawable/selector_activity_base_personal_button"
+            android:text="@string/i"/>
+    </RadioGroup>
+
+</LinearLayout>

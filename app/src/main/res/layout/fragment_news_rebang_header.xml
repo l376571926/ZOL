@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <RadioGroup
+        android:id="@+id/fragment_news_rebang_header_rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <RadioButton
+            android:id="@+id/fragment_news_rebang_header_3d_rb"
+            style="@style/activity_base_radio_button"
+            android:drawableTop="@drawable/icon_hotlist_3d"
+            android:text="three_hot_bang"/>
+
+        <RadioButton
+            android:id="@+id/fragment_news_rebang_header_1w_rb"
+            style="@style/activity_base_radio_button"
+            android:drawableTop="@drawable/icon_hotlist_1w"
+            android:text="three_hot_bang"/>
+
+        <RadioButton
+            android:id="@+id/fragment_news_rebang_header_1m_rb"
+            style="@style/activity_base_radio_button"
+            android:drawableTop="@drawable/icon_hotlist_1m"
+            android:text="three_hot_bang"/>
+
+    </RadioGroup>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <RadioGroup
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/fragment_news_rebang_second_header_rg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <RadioButton
+                android:id="@+id/fragment_news_rebang_header_category_apple_rb"
+                style="@style/fragment_news_rebang_radio_button"
+                android:drawableTop="@drawable/icon_hotlist_apple"
+                android:text="item1"/>
+
+            <RadioButton
+                android:id="@+id/fragment_news_rebang_header_category_phone_rb"
+                style="@style/fragment_news_rebang_radio_button"
+                android:drawableTop="@drawable/icon_hotlist_phone"
+                android:text="item2"/>
+
+            <RadioButton
+                android:id="@+id/fragment_news_rebang_header_category_zanji_rb"
+                style="@style/fragment_news_rebang_radio_button"
+                android:drawableTop="@drawable/icon_hotlist_zanji"
+                android:text="item3"/>
+
+            <RadioButton
+                android:id="@+id/fragment_news_rebang_header_category_review_rb"
+                style="@style/fragment_news_rebang_radio_button"
+                android:drawableTop="@drawable/icon_hotlist_review"
+                android:text="item4"/>
+
+            <RadioButton
+                android:id="@+id/fragment_news_rebang_header_category_digital_rb"
+                style="@style/fragment_news_rebang_radio_button"
+                android:drawableTop="@drawable/icon_hotlist_shuma"
+                android:text="item5"/>
+
+            <RadioButton
+                android:id="@+id/fragment_news_rebang_header_category_pc_rb"
+                style="@style/fragment_news_rebang_radio_button"
+                android:drawableTop="@drawable/icon_hotlist_computer"
+                android:text="item6"/>
+
+            <RadioButton
+                android:id="@+id/fragment_news_rebang_header_device_rb"
+                style="@style/fragment_news_rebang_radio_button"
+                android:drawableTop="@drawable/icon_hotlist_waishe"
+                android:text="item7"/>
+
+            <RadioButton
+                android:id="@+id/fragment_news_rebang_header_shopping_rb"
+                style="@style/fragment_news_rebang_radio_button"
+                android:drawableTop="@drawable/icon_hotlist_shopping"
+                android:text="item8"/>
+
+            <RadioButton
+                android:id="@+id/fragment_news_rebang_header_photography_rb"
+                style="@style/fragment_news_rebang_radio_button"
+                android:drawableTop="@drawable/icon_hotlist_photography"
+                android:text="item9"/>
+
+        </RadioGroup>
+    </HorizontalScrollView>
+</LinearLayout>

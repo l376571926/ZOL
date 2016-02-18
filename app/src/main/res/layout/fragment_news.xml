@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+    <!--标题栏-->
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#1a7fcf"
+        android:descendantFocusability="blocksDescendants"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <HorizontalScrollView
+            android:id="@+id/fragment_news_titlebar_hsv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:descendantFocusability="blocksDescendants"
+            android:scrollbars="none">
+            <RadioGroup
+                android:id="@+id/fragment_news_titlebar_rg"
+                android:layout_width="wrap_content"
+                android:descendantFocusability="blocksDescendants"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/fragment_news_titlebar_tt_rb"
+                    style="@style/fragment_news_titlebar"
+                    android:text="头条"/>
+
+                <RadioButton
+                    android:id="@+id/fragment_news_titlebar_rb_rb"
+                    style="@style/fragment_news_titlebar"
+                    android:text="热榜"/>
+
+                <RadioButton
+                    android:id="@+id/fragment_news_titlebar_dy_rb"
+                    style="@style/fragment_news_titlebar"
+                    android:text="订阅"/>
+
+                <RadioButton
+                    android:id="@+id/fragment_news_titlebar_xw_rb"
+                    style="@style/fragment_news_titlebar"
+                    android:text="新闻"/>
+
+                <RadioButton
+                    android:id="@+id/fragment_news_titlebar_pc_rb"
+                    style="@style/fragment_news_titlebar"
+                    android:text="评测"/>
+
+                <RadioButton
+                    android:id="@+id/fragment_news_titlebar_sj_rb"
+                    style="@style/fragment_news_titlebar"
+                    android:text="手机"/>
+
+                <RadioButton
+                    android:id="@+id/fragment_news_titlebar_sm_rb"
+                    style="@style/fragment_news_titlebar"
+                    android:text="数码"/>
+
+                <RadioButton
+                    android:id="@+id/fragment_news_titlebar_dn_rb"
+                    style="@style/fragment_news_titlebar"
+                    android:text="电脑"/>
+
+                <RadioButton
+                    android:id="@+id/fragment_news_titlebar_zj_rb"
+                    style="@style/fragment_news_titlebar"
+                    android:text="攒机"/>
+
+                <RadioButton
+                    android:id="@+id/fragment_news_titlebar_ws_rb"
+                    style="@style/fragment_news_titlebar"
+                    android:text="外设"/>
+
+                <RadioButton
+                    android:id="@+id/fragment_news_titlebar_dg_rb"
+                    style="@style/fragment_news_titlebar"
+                    android:text="导购"/>
+
+                <RadioButton
+                    android:id="@+id/fragment_news_titlebar_zb_rb"
+                    style="@style/fragment_news_titlebar"
+                    android:text="直播"/>
+
+            </RadioGroup>
+        </HorizontalScrollView>
+
+        <ImageView
+            android:id="@+id/fragment_news_titlebar_img_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/zol_logo"/>
+    </LinearLayout>
+
+    <!--不能设置背景色,否则只显示背景色不显示内容-->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/fragment_news_viewpager_container_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

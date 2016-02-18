@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="cn.com.zol.app.zolclientandroid">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+        android:name=".other.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/zol_logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen">
+        <activity android:name=".other.ui.LauncherActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".other.ui.GuideActivity"/>
+        <activity android:name=".other.ui.HomeActivity"/>
+        <activity android:name=".module5.ui.LoginActivity"/>
+        <activity android:name=".module5.ui.RegisterActivity"/>
+    </application>
+
+</manifest>

@@ -1,0 +1,84 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--系统状态栏透明主题-->
+    <style name="translucent" parent="@android:style/Theme.Light">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowTitleSize">40.0dip</item>
+        <item name="android:windowTitleBackgroundStyle">@style/windowTitle</item>
+    </style>
+    <!--系统状态栏透明主题,标题字体风格-->
+    <style name="windowTitle">
+        <item name="android:textAppearance">@style/windowTitleText</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/prodinfo_top</item>
+        <item name="android:paddingLeft">10.dip</item>
+    </style>
+    <!--系统状态栏透明主题,标题字体大小-->
+    <style name="windowTitleText">
+        <item name="android:textSize">10.0dip</item>
+    </style>
+
+    <!--引导页底部三个小圆点-->
+    <style name="activity_guide_radio_button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:button">@null</item>
+        <item name="android:clickable">true</item>
+        <item name="android:drawableTop">@drawable/selector_activity_guide_radio_button</item>
+    </style>
+    <!--BaseActivity中下部五个按钮的样式-->
+    <style name="activity_base_radio_button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:clickable">true</item>
+    </style>
+    <!--BaseActivity上部titlebar的样式-->
+    <style name="fragment_news_titlebar">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:button">@null</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <!--NewsFragment下执热榜模块内的9个横向RadioButton-->
+    <style name="fragment_news_rebang_radio_button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="fragment_shop_radio_button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+</resources>

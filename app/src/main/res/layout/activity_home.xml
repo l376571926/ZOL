@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--FrameLayout的子控件通过设置自身的layout_gravity调整自己在父控件中的位置-->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_home_child_fragment_container_fl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+</FrameLayout>
+
+
+
+
+
+

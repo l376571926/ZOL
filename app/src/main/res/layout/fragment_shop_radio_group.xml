@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_shop_buttons_rg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp">
+
+    <RadioButton
+        android:id="@+id/fragment_shop_button1_rb"
+        style="@style/fragment_shop_radio_button"
+        android:drawableTop="@drawable/ele_value"
+        android:text="商城" />
+
+    <RadioButton
+        android:id="@+id/fragment_shop_button2_rb"
+        style="@style/fragment_shop_radio_button"
+        android:drawableTop="@drawable/ele_customers"
+        android:text="团购" />
+
+    <RadioButton
+        android:id="@+id/fragment_shop_button3_rb"
+        style="@style/fragment_shop_radio_button"
+        android:drawableTop="@drawable/ele_partner"
+        android:text="赚钱" />
+
+    <RadioButton
+        android:id="@+id/fragment_shop_button4_rb"
+        style="@style/fragment_shop_radio_button"
+        android:drawableTop="@drawable/ele_raise"
+        android:text="众筹" />
+
+    <RadioButton
+        android:id="@+id/fragment_shop_button5_rb"
+        style="@style/fragment_shop_radio_button"
+        android:drawableTop="@drawable/ele_try"
+        android:text="试用" />
+</RadioGroup>
