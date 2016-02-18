@@ -30,18 +30,6 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
 {
     private ViewPager viewPager;
     private RadioGroup radioGroup;
-    private RadioButton ttRbtn;
-    private RadioButton rbRbtn;
-    private RadioButton dyRbtn;
-    private RadioButton xwRbtn;
-    private RadioButton pcRbtn;
-    private RadioButton sjRbtn;
-    private RadioButton smRbtn;
-    private RadioButton dnRbtn;
-    private RadioButton zjRbtn;
-    private RadioButton wsRbtn;
-    private RadioButton dgRbtn;
-    private RadioButton zbRbtn;
     private HorizontalScrollView horizontalScrollView;
     private ImageView titleRightIv;
     /**
@@ -68,18 +56,6 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
     {
         horizontalScrollView = (HorizontalScrollView) getActivity().findViewById(R.id.fragment_news_titlebar_hsv);
         radioGroup = (RadioGroup) getActivity().findViewById(R.id.fragment_news_titlebar_rg);
-        ttRbtn = (RadioButton) getActivity().findViewById(R.id.fragment_news_titlebar_tt_rb);
-        rbRbtn = (RadioButton) getActivity().findViewById(R.id.fragment_news_titlebar_rb_rb);
-        dyRbtn = (RadioButton) getActivity().findViewById(R.id.fragment_news_titlebar_dy_rb);
-        xwRbtn = (RadioButton) getActivity().findViewById(R.id.fragment_news_titlebar_xw_rb);
-        pcRbtn = (RadioButton) getActivity().findViewById(R.id.fragment_news_titlebar_pc_rb);
-        sjRbtn = (RadioButton) getActivity().findViewById(R.id.fragment_news_titlebar_sj_rb);
-        smRbtn = (RadioButton) getActivity().findViewById(R.id.fragment_news_titlebar_sm_rb);
-        dnRbtn = (RadioButton) getActivity().findViewById(R.id.fragment_news_titlebar_dn_rb);
-        zjRbtn = (RadioButton) getActivity().findViewById(R.id.fragment_news_titlebar_zj_rb);
-        wsRbtn = (RadioButton) getActivity().findViewById(R.id.fragment_news_titlebar_ws_rb);
-        dgRbtn = (RadioButton) getActivity().findViewById(R.id.fragment_news_titlebar_dg_rb);
-        zbRbtn = (RadioButton) getActivity().findViewById(R.id.fragment_news_titlebar_zb_rb);
         titleRightIv = (ImageView) getActivity().findViewById(R.id.fragment_news_titlebar_img_iv);
 
         viewPager = (ViewPager) getActivity().findViewById(R.id.fragment_news_viewpager_container_vp);
@@ -105,7 +81,7 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
     {
         String tabStr[] = {"头条", "热榜", "订阅", "新闻", "评测", "手机", "数码", "电脑", "攒机", "外设", "导购", "直播"};
         showFragment();
-        ttRbtn.performClick();
+        radioGroup.getChildAt(0).performClick();
 
     }
 

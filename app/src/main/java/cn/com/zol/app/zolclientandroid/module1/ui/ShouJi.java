@@ -19,6 +19,7 @@ public class ShouJi extends BaseFragment
     protected void initView()
     {
 
+
     }
 
     @Override

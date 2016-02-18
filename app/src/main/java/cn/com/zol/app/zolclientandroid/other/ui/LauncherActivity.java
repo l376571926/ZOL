@@ -26,7 +26,7 @@ import cn.com.zol.app.zolclientandroid.other.bean.StartPic;
 
 /**
  * 程序启动后的第一个activity
- * <p/>
+ * <p>
  * 显示zol广告的页面
  */
 public class LauncherActivity extends Activity implements View.OnClickListener
