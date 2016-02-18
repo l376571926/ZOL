@@ -26,7 +26,7 @@ import cn.com.zol.app.zolclientandroid.other.ui.BaseFragment;
  * <p/>
  * Created by liyiwei on 2016/2/2.
  */
-public class NewsFragment extends BaseFragment implements ViewPager.OnPageChangeListener, RadioGroup.OnCheckedChangeListener
+public class NewsFragment extends BaseFragment implements ViewPager.OnPageChangeListener, RadioGroup.OnCheckedChangeListener, View.OnFocusChangeListener
 {
     private ViewPager viewPager;
     private RadioGroup radioGroup;
@@ -93,6 +93,7 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
     protected void initEvent()
     {
         radioGroup.setOnCheckedChangeListener(this);
+        radioGroup.setOnFocusChangeListener(this);
         viewPager.addOnPageChangeListener(this);
     }
 
@@ -104,6 +105,7 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
     {
         String tabStr[] = {"头条", "热榜", "订阅", "新闻", "评测", "手机", "数码", "电脑", "攒机", "外设", "导购", "直播"};
         showFragment();
+        ttRbtn.performClick();
 
     }
 
@@ -203,12 +205,18 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
             RadioButton radioButton = (RadioButton) radioGroup.getChildAt(i);
             if (position == i)
             {
+                /**
+                 * 这里只执行一次
+                 */
                 zoomIn(radioButton);
-                radioButton.setTextColor(Color.YELLOW);
+                radioButton.setTextColor(Color.WHITE);
             } else
             {
+                /**
+                 * 这里执行childCount-1次
+                 */
 //                zoomOut(radioButton);
-                radioButton.setTextColor(Color.RED);
+                radioButton.setTextColor(0xffbee2ff);
             }
         }
 
@@ -283,5 +291,14 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
         view.setAnimation(animation);
         view.startAnimation(animation);
         LogUtils.e("控件缩小执行完毕!");
+    }
+
+    @Override
+    public void onFocusChange(View v, boolean hasFocus)
+    {
+
+        /**
+         * 如果焦点改变的控件的Tag为放大,并且失去了焦点,那么就执行缩小
+         */
     }
 }

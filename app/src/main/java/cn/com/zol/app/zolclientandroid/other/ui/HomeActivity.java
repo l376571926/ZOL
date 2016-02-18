@@ -2,17 +2,17 @@ package cn.com.zol.app.zolclientandroid.other.ui;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.view.MotionEvent;
+import android.view.KeyEvent;
+import android.view.View;
+import android.webkit.WebView;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import cn.com.zol.app.zolclientandroid.R;
-import cn.com.zol.app.zolclientandroid.module3.ui.BbsFragment;
 import cn.com.zol.app.zolclientandroid.module1.ui.NewsFragment;
 import cn.com.zol.app.zolclientandroid.module2.ui.PriceFragment;
+import cn.com.zol.app.zolclientandroid.module3.ui.BbsFragment;
 import cn.com.zol.app.zolclientandroid.module4.ui.ShopFragment;
 import cn.com.zol.app.zolclientandroid.module5.ui.UserFragment;
-import cn.com.zol.app.zolclientandroid.other.utils.PublicStringRequestUtils;
 
 /**
  * 主页
@@ -130,5 +130,24 @@ public class HomeActivity extends BaseActivity implements RadioGroup.OnCheckedCh
             }
         }
         transaction.commit();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if (keyCode == KeyEvent.KEYCODE_BACK)
+        {
+            View inflate = getLayoutInflater().inflate(R.layout.fragment_news_dingyue, null);
+            WebView webView = (WebView) inflate.findViewById(R.id.fragment_news_dingyue_content_wv);
+            if (webView.canGoBack())
+            {
+                webView.goBack();
+                return true;
+            } else
+            {
+                return super.onKeyDown(keyCode, event);
+            }
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

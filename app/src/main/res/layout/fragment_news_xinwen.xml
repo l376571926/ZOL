@@ -10,4 +10,26 @@
         android:padding="10dp"
         android:text="xinwen"/>
 
+    <EditText
+        android:id="@+id/fragment_news_xinwen_url_address_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textUri"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ProgressBar
+        android:id="@+id/fragment_news_xinwen_progressbar_pb"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:visibility="visible"/>
+
+    <WebView
+        android:id="@+id/fragment_news_xinwen_url_response_wv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>
