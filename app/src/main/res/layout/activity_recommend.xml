@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="cn.com.zol.app.zolclientandroid.module5.ui.RecommendActivity">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -21,7 +22,7 @@
             <!--用户登录界面的返回按钮-->
             <!--drawablePadding属性设定图片与文字的距离,可为负数-->
             <TextView
-                android:id="@+id/back_enter"
+                android:id="@+id/back_recommend"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -33,7 +34,7 @@
                 android:gravity="center"
                 android:paddingEnd="20dp"
                 android:paddingRight="20dp"
-                android:text="@string/user_phone_register"
+                android:text="意见和反馈"
                 android:textColor="@color/white"
                 android:textSize="20sp"/>
         </RelativeLayout>
@@ -41,30 +42,18 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <EditText
-        android:layout_marginTop="70dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="false"
-        android:hint="@string/register_phone_nember"/>
 
     <EditText
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:hint="请输入你的意见或建议，我们会认真对待和处理"/>
+
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:focusable="false"
-        android:hint="@string/register_password"/>
-
-        <CheckBox
-            android:layout_margin="25dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="false"
-            android:text="@string/register_agreement"/>
+        android:layout_margin="20dp"
+        android:hint="联系方式（QQ/Email/手机号）"/>
 
     <Button
         android:layout_width="match_parent"
@@ -72,7 +61,18 @@
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:background="@drawable/selector_activity_login_login_button"
-        android:text="@string/next"
+        android:text="提交"
         android:textColor="@color/white"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="快速反馈问题，还可以加入ZOL客户端"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="反馈问题群：304107844"/>
 
 </LinearLayout>
