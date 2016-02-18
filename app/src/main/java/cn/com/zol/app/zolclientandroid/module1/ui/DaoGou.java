@@ -4,6 +4,7 @@ import cn.com.zol.app.zolclientandroid.R;
 import cn.com.zol.app.zolclientandroid.other.ui.BaseFragment;
 
 /**
+ * 导购模块
  * Created by liyiwei on 2016/2/3.
  */
 public class DaoGou extends BaseFragment
