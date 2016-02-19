@@ -2,15 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@drawable/bg"
+              android:background="@color/app_bg_color"
               android:divider="@android:drawable/divider_horizontal_dark"
               android:orientation="vertical">
-    <!--ToolBar容器-->
-    <!--<FrameLayout
-        android:id="@+id/activity_base_titlebar_container_fl"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="#1a7fcf"/>-->
 
     <!--子类布局的container-->
     <!--如果没有其他控件设置权重,那么设置权重的这个控件就会填充满剩余的空间-->
@@ -25,6 +19,7 @@
         android:id="@+id/activity_base_buttons_rg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:orientation="horizontal"
         android:padding="5dp">
 

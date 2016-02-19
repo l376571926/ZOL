@@ -145,4 +145,6 @@
     <color name="darkblue">#00008b</color><!--暗蓝色 -->
     <color name="navy">#000080</color><!--海军色 -->
     <color name="black">#000000</color><!--黑色 -->
+
+    <color name="app_bg_color">#f0f0f0</color><!--app全局背景色-->
 </resources>

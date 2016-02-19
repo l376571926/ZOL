@@ -20,6 +20,8 @@
     <string name="register_password">请输入密码</string>
     <string name="register_agreement">我同意“中关村在线用户注册协议”和“隐私权声明”</string>
     <string name="next">下一步</string>
+    <string name="comment">%1$s评论</string>
+    <string name="robsofa">抢沙发</string>
 
 
 </resources>
