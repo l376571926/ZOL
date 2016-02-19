@@ -23,10 +23,10 @@ import cn.com.zol.app.zolclientandroid.other.ui.BaseFragment;
 
 /**
  * 资讯模块Fragment
- * <p/>
+ * <p>
  * Created by liyiwei on 2016/2/2.
  */
-public class NewsFragment extends BaseFragment implements ViewPager.OnPageChangeListener, RadioGroup.OnCheckedChangeListener, View.OnFocusChangeListener
+public class NewsFragment extends BaseFragment implements ViewPager.OnPageChangeListener, RadioGroup.OnCheckedChangeListener
 {
     private ViewPager viewPager;
     private RadioGroup radioGroup;
@@ -35,7 +35,7 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
     /**
      * 上一个被点击的RadioButton
      */
-    private RadioButton preRadioButton;
+    private RadioButton lastRadioButton;
 
     /**
      * 初始化布局
@@ -69,7 +69,6 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
     protected void initEvent()
     {
         radioGroup.setOnCheckedChangeListener(this);
-        radioGroup.setOnFocusChangeListener(this);
         viewPager.addOnPageChangeListener(this);
     }
 
@@ -81,8 +80,8 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
     {
         String tabStr[] = {"头条", "热榜", "订阅", "新闻", "评测", "手机", "数码", "电脑", "攒机", "外设", "导购", "直播"};
         showFragment();
-        radioGroup.getChildAt(0).performClick();
-
+        RadioButton radioButton = (RadioButton) radioGroup.getChildAt(0);
+        radioButton.performClick();
     }
 
     /**
@@ -131,8 +130,10 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
     @Override
     public void onPageSelected(int position)
     {
+
         changeTabTextColorAndLocation(position);
 //        LogUtils.e(position + "");
+
     }
 
     @Override
@@ -143,6 +144,9 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId)
     {
+
+        LogUtils.e("测试初始状态RadioGroup是否执行!!!");
+
         //循环读取RadioGroup中所有RadioButton的Id并存入集合中
         List<Integer> idList = new ArrayList<>();
         for (int i = 0; i < group.getChildCount(); i++)
@@ -174,28 +178,12 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
      */
     private void changeTabTextColorAndLocation(int position)
     {
-        int childCount = radioGroup.getChildCount();
-//        LogUtils.e("平移点击的按钮到屏幕中间位置并高亮,changeTabTextColorAndLocation:" + radioGroup.toString());
-        for (int i = 0; i < childCount; i++)
-        {
-            RadioButton radioButton = (RadioButton) radioGroup.getChildAt(i);
-            if (position == i)
-            {
-                /**
-                 * 这里只执行一次
-                 */
-                zoomIn(radioButton);
-                radioButton.setTextColor(Color.WHITE);
-            } else
-            {
-                /**
-                 * 这里执行childCount-1次
-                 */
-//                zoomOut(radioButton);
-                radioButton.setTextColor(0xffbee2ff);
-            }
-        }
+        changeCurrentTabColor(position);
+        showTitleTabAnimation(position);
+        moveCurrentTabToMid(position);
+    }
 
+    private void moveCurrentTabToMid(int position) {
         //获取屏幕分辨率等参数
         DisplayMetrics metrics = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
@@ -218,7 +206,37 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
         int offsetX = ((int) currentItemX) - midScreenX;
 //        LogUtils.e("偏移量offsetX=" + offsetX);
         horizontalScrollView.smoothScrollTo(offsetX, 0);
+    }
 
+    private void changeCurrentTabColor(int position) {
+        int childCount = radioGroup.getChildCount();
+//        LogUtils.e("平移点击的按钮到屏幕中间位置并高亮,changeTabTextColorAndLocation:" + radioGroup.toString());
+        for (int i = 0; i < childCount; i++) {
+            RadioButton radioButton = (RadioButton) radioGroup.getChildAt(i);
+            if (position == i) {
+                /**
+                 * 这里只执行一次
+                 */
+//                zoomIn(radioButton);
+                radioButton.setTextColor(Color.WHITE);
+            } else {
+                /**
+                 * 这里执行childCount-1次
+                 */
+//                zoomOut(radioButton);
+                radioButton.setTextColor(0xffbee2ff);
+            }
+
+        }
+    }
+
+    private void showTitleTabAnimation(int position) {
+        if (lastRadioButton != null) {
+            zoomOut(lastRadioButton);
+        }
+        RadioButton radioButton = (RadioButton) radioGroup.getChildAt(position);
+        zoomIn(radioButton);
+        lastRadioButton = radioButton;
     }
 
     /**
@@ -267,14 +285,5 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
         view.setAnimation(animation);
         view.startAnimation(animation);
         LogUtils.e("控件缩小执行完毕!");
-    }
-
-    @Override
-    public void onFocusChange(View v, boolean hasFocus)
-    {
-
-        /**
-         * 如果焦点改变的控件的Tag为放大,并且失去了焦点,那么就执行缩小
-         */
     }
 }

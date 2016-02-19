@@ -3,6 +3,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="@drawable/bg"
+              android:divider="@android:drawable/divider_horizontal_dark"
               android:orientation="vertical">
     <!--ToolBar容器-->
     <!--<FrameLayout
@@ -19,7 +20,6 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"/>
-
     <!--底部导航栏-->
     <RadioGroup
         android:id="@+id/activity_base_buttons_rg"

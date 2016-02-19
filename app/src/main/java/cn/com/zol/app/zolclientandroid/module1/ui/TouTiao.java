@@ -31,35 +31,9 @@ import cn.com.zol.app.zolclientandroid.other.utils.PublicStringRequestUtils;
 public class TouTiao extends ListFragment implements PublicStringRequestUtils.OnListDataChangeListener, PublicStringRequestUtils.OnPicsDataChangeListener
 {
     private List<RelativeLayout> relativeLayoutList = new ArrayList<>();
-    private PublicItemAdapter adapter;
-
-    private PagerAdapter bannerAdapter = new PagerAdapter()
-    {
-        @Override
-        public int getCount()
-        {
-            return relativeLayoutList.size();
-        }
-
-        @Override
-        public boolean isViewFromObject(View view, Object object)
-        {
-            return view == object;
-        }
-
-        @Override
-        public Object instantiateItem(ViewGroup container, int position)
-        {
-            container.addView(relativeLayoutList.get(position));
-            return relativeLayoutList.get(position);
-        }
-
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object)
-        {
-            container.removeView(relativeLayoutList.get(position));
-        }
-    };
+    private PublicItemAdapter itemAdapter;
+    private PagerAdapter bannerAdapter;
+    private List<PublicListTItem.ListEntity> listEntities;// = new ArrayList<>();
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState)
@@ -79,28 +53,49 @@ public class TouTiao extends ListFragment implements PublicStringRequestUtils.On
     private void addListViewHeader()
     {
         View inflate = getActivity().getLayoutInflater().inflate(R.layout.fragment_news_public_listview_header, null);
-
         ViewPager viewPager = ((ViewPager) inflate.findViewById(R.id.fragment_news_public_listview_header_container_vp));
 
+        bannerAdapter = new PagerAdapter() {
+            @Override
+            public int getCount() {
+                return relativeLayoutList.size();
+            }
+
+            @Override
+            public boolean isViewFromObject(View view, Object object) {
+                return view == object;
+            }
+
+            @Override
+            public Object instantiateItem(ViewGroup container, int position) {
+                container.addView(relativeLayoutList.get(position));
+                return relativeLayoutList.get(position);
+            }
+
+            @Override
+            public void destroyItem(ViewGroup container, int position, Object object) {
+                container.removeView(relativeLayoutList.get(position));
+            }
+        };
         viewPager.setAdapter(bannerAdapter);
         getListView().addHeaderView(inflate);
     }
-
-    private List<PublicListTItem.ListEntity> listEntities = new ArrayList<>();
 
     /**
      * 显示ListView中的数据
      */
     private void addListViewBody()
     {
-        adapter = new PublicItemAdapter(getActivity(), listEntities);
-        setListAdapter(adapter);
+        listEntities = new ArrayList<>();
+        itemAdapter = new PublicItemAdapter(getActivity(), listEntities);
+        getListView().setDividerHeight(0);
+        setListAdapter(itemAdapter);
     }
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id)
     {
-        Toast.makeText(getActivity(), adapter.getItem(position).toString(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), itemAdapter.getItem(position).toString(), Toast.LENGTH_SHORT).show();
     }
 
     @Override

@@ -6,30 +6,34 @@
               android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/fragment_news_public_listview_header_search_ll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/bg_search"
-        android:gravity="center"
-        android:orientation="horizontal">
+        style="@style/fragment_news_margin_and_padding"
+        android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/icon_news_search"/>
-
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/fragment_news_public_listview_header_search_ll"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="搜索"/>
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/bg_search"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/icon_news_search"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="搜索"/>
+        </LinearLayout>
+        <!--必须设置高为固定值,否则不显示-->
+        <android.support.v4.view.ViewPager
+            android:id="@+id/fragment_news_public_listview_header_container_vp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
     </LinearLayout>
-
-    <!--必须设置高为固定值,否则不显示-->
-    <android.support.v4.view.ViewPager
-        android:id="@+id/fragment_news_public_listview_header_container_vp"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"/>
-
 </LinearLayout>

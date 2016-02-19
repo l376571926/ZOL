@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.widget.FrameLayout;
 
+import com.umeng.analytics.MobclickAgent;
+
 import cn.com.zol.app.zolclientandroid.R;
 
 /**
@@ -66,6 +68,19 @@ public abstract class BaseActivity extends FragmentActivity// implements View.On
      * 初始化数据
      */
     protected abstract void initData();
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+
+    }
 
 }
 
