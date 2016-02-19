@@ -71,6 +71,7 @@ public class UserFragment extends BaseFragment implements View.OnClickListener {
                 startActivity(new Intent(getActivity(),RecommendActivity.class));
                 break;
             case R.id.personal_my_settings:
+                startActivity(new Intent(getActivity(),AppSettingActivity.class));
                 break;
             case R.id.personal_my_msg:
                 jump(flag);

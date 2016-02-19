@@ -82,4 +82,8 @@
         <item name="android:clickable">true</item>
     </style>
 
+    <style name="CustomCheckboxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/selector_switch_button</item>
+    </style>
+
 </resources>

@@ -27,6 +27,8 @@
         <activity android:name=".module5.ui.LoginActivity" />
         <activity android:name=".module5.ui.RegisterActivity" />
         <activity android:name=".module5.ui.SecondHandActivity"/>
+        <activity android:name=".module5.ui.AppSettingActivity"/>
+        <activity android:name=".module5.ui.RecommendActivity"/>
     </application>
 
     <meta-data

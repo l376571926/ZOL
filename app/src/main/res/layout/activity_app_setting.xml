@@ -23,7 +23,7 @@
         <!--用户登录界面的返回按钮-->
         <!--drawablePadding属性设定图片与文字的距离,可为负数-->
         <TextView
-            android:id="@+id/back"
+            android:id="@+id/setting_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -41,21 +41,223 @@
     </RelativeLayout>
 
     </android.support.v7.widget.Toolbar>
-    
-    
-    <RelativeLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="第三方账号管理"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/icon_all_channel"
-            android:layout_alignParentRight="true"/>
-    </RelativeLayout>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@drawable/shape_divider"
+            android:showDividers="middle"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="第三方账号管理"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_all_channel"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="字体"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="中"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="城市设置"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="设置城市以便获取更精准的信息"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="夜间模式"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="白天"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="清除缓存"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0M"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="页面手势右滑"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    style="@style/CustomCheckboxTheme"
+                    android:background="@drawable/selector_switch_button"/>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/lightgrey"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="移动网络不显示图片"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    style="@style/CustomCheckboxTheme"
+                    android:background="@drawable/selector_switch_button"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="图片质量"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="高品质"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/lightgrey"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="文章推送"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    style="@style/CustomCheckboxTheme"
+                    android:background="@drawable/selector_switch_button"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="通知推送"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    style="@style/CustomCheckboxTheme"
+                    android:background="@drawable/selector_switch_button"/>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/lightgrey"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="关于我们"/>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/lightgrey"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="网络诊断"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
