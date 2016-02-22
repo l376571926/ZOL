@@ -22,6 +22,9 @@
     <string name="next">下一步</string>
     <string name="comment">%1$s评论</string>
     <string name="robsofa">抢沙发</string>
-
-
+    <string name="shopping_at_once">立即抢购</string>
+    <string name="price_place_holder">￥%1$s</string>
+    <string name="remain_days">%1$s</string>
+    <string name="rob_shop_price">抢购价:</string>
+    <string name="care_count">%1$s人关注</string>
 </resources>

@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioGroup;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
@@ -18,9 +17,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.lidroid.xutils.util.LogUtils;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -28,8 +25,8 @@ import cn.com.zol.app.zolclientandroid.R;
 import cn.com.zol.app.zolclientandroid.module4.adapter.ItemAdapter;
 import cn.com.zol.app.zolclientandroid.module4.bean.Banner;
 import cn.com.zol.app.zolclientandroid.module4.bean.Item;
-import cn.com.zol.app.zolclientandroid.other.ui.BaseFragment;
 import cn.com.zol.app.zolclientandroid.other.MyApplication;
+import cn.com.zol.app.zolclientandroid.other.ui.BaseFragment;
 
 /**
  * 放心购模块
@@ -62,8 +59,8 @@ public class ShopFragment extends BaseFragment
     {
         listView = (ListView) getActivity().findViewById(R.id.goods_list);
 
-        View inflate = getActivity().getLayoutInflater().inflate(R.layout.fragment_shop_view_pager, null);
-        viewPager = (ViewPager) inflate.findViewById(R.id.banner);
+        View inflate = getActivity().getLayoutInflater().inflate(R.layout.frag_shop_lv_header_viewpager, null);
+        viewPager = (ViewPager) inflate.findViewById(R.id.frag_shop_viewpager_banner_vp);
         listView.addHeaderView(inflate);//先添加到ListView的头部,再设置适配器
 
         inflate = getActivity().getLayoutInflater().inflate(R.layout.fragment_shop_radio_group, null);
@@ -78,7 +75,6 @@ public class ShopFragment extends BaseFragment
     protected void initEvent()
     {
         imageViewList = new ArrayList<>();
-
         pagerAdapter = new PagerAdapter()
         {
             @Override
@@ -107,6 +103,28 @@ public class ShopFragment extends BaseFragment
             }
         };
         viewPager.setAdapter(pagerAdapter);
+
+        Timer timer = new Timer();
+        timer.schedule(
+                new TimerTask()
+                {
+                    @Override
+                    public void run()
+                    {
+                        if (imageViewList.size() != 0)
+                        {
+                            /**
+                             * 下一个要显示的page页的索引
+                             */
+                            currentPageId = (currentPageId + 1) % imageViewList.size();
+                            handler.obtainMessage().sendToTarget();
+                        }
+                    }
+                }
+                , 3000
+                , 3000
+        );
+
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener()
         {
             @Override
@@ -137,74 +155,65 @@ public class ShopFragment extends BaseFragment
 
         itemList = new ArrayList<>();
         itemAdapter = new ItemAdapter(getActivity(), itemList);
+        listView.setDividerHeight(0);
         listView.setAdapter(itemAdapter);
     }
 
     @Override
     protected void initData()
     {
-        downBannerData();
-        downItemData();
+        String apiUrlNewFocusPic = "http://api.zol.com/index.php?c=Tuan_AppReturn&a=NewFocusPic";
+        String apiUrlNewGoodsList = "http://api.zol.com/index.php?c=Tuan_AppReturn&a=NewGoodsList";
+
+        final String vs = "and420";
+        downBannerData(apiUrlNewFocusPic, vs);
+
+        String page = "1";
+        downItemData(apiUrlNewGoodsList, vs, page);
     }
-
-    /**
-     * Item数据下载监听器,如果以匿名内部类的方式写在StringRequest语句中,
-     * 会出现无法从response中把数据传给items集合的问题,
-     * 原因是this.itemList = PublicListTItem.arrayItemFromData(((String) response));
-     * 这条语句前面隐藏了一个this,而这个this,在匿名内部类里面不是ShopFragment,而是Response.Listener
-     * 所以出现"this"is not available的问题
-     */
-    private Response.Listener itemListener = new Response.Listener()
-    {
-        @Override
-        public void onResponse(Object response)
-        {
-//            LogUtils.e("请求到ListView要展示的内容为:" + response);
-
-            //直接将结果赋值给itemList,将无法更新ListView
-            List<Item> items = Item.arrayItemFromData(((String) response));
-//            LogUtils.e("获取到ShopFragment广告栏数据,大小为:" + items.size());
-            itemList.clear();
-            itemList.addAll(items);
-        }
-    };
-    private Response.ErrorListener itemErrorListener = new Response.ErrorListener()
-    {
-        @Override
-        public void onErrorResponse(VolleyError error)
-        {
-//            LogUtils.e("请求失败,未请求到ListView要展示的内容,错误信息为:" + error.getMessage());
-        }
-    };
 
     /**
      * 使用Volley执行GET请求,下载ListView所要展示的数据
      */
-    private void downItemData()
+    private void downItemData(String apiUrl, String vs, String page)
     {
-        String apiUrl = "http://api.zol.com/index.php?c=Tuan_AppReturn&a=NewGoodsList";
-        final String vs = "and420";
-        final String page = "1";
+        StringBuilder builder = new StringBuilder(apiUrl);
+        builder.append("&vs=" + vs);
+        builder.append("&page=" + page);
+        apiUrl = builder.toString();
 
-        StringRequest request = new StringRequest(apiUrl, itemListener, itemErrorListener)
+        StringRequest request = new StringRequest(apiUrl
+                , new Response.Listener<String>()
         {
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError
+            public void onResponse(String response)
             {
-                Map<String, String> params = new HashMap<>();
-                params.put("vs", vs);
-                params.put("page", page);
-                return params;
+//                LogUtils.e("请求到ListView要展示的内容为:" + response);
+
+                //直接将结果赋值给itemList,将无法更新ListView
+                List<Item> items = Item.arrayItemFromData(((String) response));
+//                LogUtils.e("获取到ShopFragment广告栏数据,大小为:" + items.size());
+                itemList.clear();
+                itemList.addAll(items);
             }
-        };
+        }
+                , new Response.ErrorListener()
+        {
+            @Override
+            public void onErrorResponse(VolleyError error)
+            {
+                LogUtils.e("请求失败,未请求到ListView要展示的内容,错误信息为:" + error.getMessage());
+            }
+        });
         MyApplication.requestQueue.add(request);
 
     }
 
-    private void downBannerData()
+    private void downBannerData(String apiUrl, String vs)
     {
-        String apiUrl = "http://api.zol.com/index.php?c=Tuan_AppReturn&a=NewFocusPic";
-        final String vs = "and420";
+        StringBuilder builder = new StringBuilder(apiUrl);
+        builder.append("&vs=" + vs);
+        apiUrl = builder.toString();
 
         StringRequest request = new StringRequest(apiUrl
                 , new Response.Listener<String>()
@@ -254,49 +263,10 @@ public class ShopFragment extends BaseFragment
             @Override
             public void onErrorResponse(VolleyError error)
             {
-//                LogUtils.e("请求失败,未请求到Banner要展示的内容,错误信息为:" + error.getMessage());
+                LogUtils.e("请求失败,未请求到Banner要展示的内容,错误信息为:" + error.getMessage());
             }
-        })
-        {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError
-            {
-                Map<String, String> params = new HashMap<>();
-                params.put("vs", vs);
-                return params;
-            }
-        };
+        });
         MyApplication.requestQueue.add(request);
-    }
-
-    @Override
-    public void onStart()
-    {
-        /**
-         * 此句不能注释掉,否则报错
-         */
-        super.onStart();
-
-        Timer timer = new Timer();
-        timer.schedule(
-                new TimerTask()
-                {
-                    @Override
-                    public void run()
-                    {
-                        if (imageViewList.size() != 0)
-                        {
-                            /**
-                             * 下一个要显示的page页的索引
-                             */
-                            currentPageId = (currentPageId + 1) % imageViewList.size();
-                            handler.obtainMessage().sendToTarget();
-                        }
-                    }
-                }
-                , 3000
-                , 3000
-        );
     }
 
     /**

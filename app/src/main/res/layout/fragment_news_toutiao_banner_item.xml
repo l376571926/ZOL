@@ -10,11 +10,37 @@
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"/>
 
-    <TextView
-        android:id="@+id/stitle"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="stitle"/>
+        android:background="@drawable/shape_frag_news_toutiao_banner_title_bg">
 
+        <TextView
+            android:id="@+id/stitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingEnd="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:text="stitle"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/frag_news_tt_banner_item_count_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:paddingBottom="5dp"
+            android:paddingEnd="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:text="1/5"
+            android:textColor="@color/white"/>
+    </FrameLayout>
 </RelativeLayout>

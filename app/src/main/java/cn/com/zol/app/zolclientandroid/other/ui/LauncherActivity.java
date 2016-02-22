@@ -69,7 +69,7 @@ public class LauncherActivity extends Activity implements View.OnClickListener
                     startActivity(new Intent(LauncherActivity.this, HomeActivity.class));
                     finish();
                 }
-            }, 5000);
+            }, 1000);//停留在启动画面几秒,然后才进入主页面
 
         }
 

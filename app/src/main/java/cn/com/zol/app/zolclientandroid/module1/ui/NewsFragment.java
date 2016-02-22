@@ -13,8 +13,6 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.lidroid.xutils.util.LogUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +21,7 @@ import cn.com.zol.app.zolclientandroid.other.ui.BaseFragment;
 
 /**
  * 资讯模块Fragment
- * <p>
+ * <p/>
  * Created by liyiwei on 2016/2/2.
  */
 public class NewsFragment extends BaseFragment implements ViewPager.OnPageChangeListener, RadioGroup.OnCheckedChangeListener
@@ -145,7 +143,7 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
     public void onCheckedChanged(RadioGroup group, int checkedId)
     {
 
-        LogUtils.e("测试初始状态RadioGroup是否执行!!!");
+//        LogUtils.e("测试初始状态RadioGroup是否执行!!!");
 
         //循环读取RadioGroup中所有RadioButton的Id并存入集合中
         List<Integer> idList = new ArrayList<>();
@@ -183,7 +181,8 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
         moveCurrentTabToMid(position);
     }
 
-    private void moveCurrentTabToMid(int position) {
+    private void moveCurrentTabToMid(int position)
+    {
         //获取屏幕分辨率等参数
         DisplayMetrics metrics = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
@@ -208,18 +207,22 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
         horizontalScrollView.smoothScrollTo(offsetX, 0);
     }
 
-    private void changeCurrentTabColor(int position) {
+    private void changeCurrentTabColor(int position)
+    {
         int childCount = radioGroup.getChildCount();
 //        LogUtils.e("平移点击的按钮到屏幕中间位置并高亮,changeTabTextColorAndLocation:" + radioGroup.toString());
-        for (int i = 0; i < childCount; i++) {
+        for (int i = 0; i < childCount; i++)
+        {
             RadioButton radioButton = (RadioButton) radioGroup.getChildAt(i);
-            if (position == i) {
+            if (position == i)
+            {
                 /**
                  * 这里只执行一次
                  */
 //                zoomIn(radioButton);
                 radioButton.setTextColor(Color.WHITE);
-            } else {
+            } else
+            {
                 /**
                  * 这里执行childCount-1次
                  */
@@ -230,8 +233,10 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
         }
     }
 
-    private void showTitleTabAnimation(int position) {
-        if (lastRadioButton != null) {
+    private void showTitleTabAnimation(int position)
+    {
+        if (lastRadioButton != null)
+        {
             zoomOut(lastRadioButton);
         }
         RadioButton radioButton = (RadioButton) radioGroup.getChildAt(position);
@@ -247,20 +252,20 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
     private void zoomIn(View view)
     {
         ScaleAnimation animation = new ScaleAnimation(1.0f
-                , 1.4f
+                , 1.2f
                 , 1.0f
-                , 1.4f
+                , 1.2f
                 , Animation.RELATIVE_TO_SELF
                 , 0.5f
                 , Animation.RELATIVE_TO_SELF
                 , 0.5f);
-        animation.setDuration(500);
+//        animation.setDuration(500);
 //        animation.setRepeatCount(2);
         animation.setFillAfter(true);
 //        animation.setStartOffset(1000);
         view.setAnimation(animation);
         view.startAnimation(animation);
-        LogUtils.e("控件放大执行完毕!");
+//        LogUtils.e("控件放大执行完毕!");
     }
 
     /**
@@ -270,20 +275,20 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
      */
     private void zoomOut(View view)
     {
-        ScaleAnimation animation = new ScaleAnimation(1.4f
+        ScaleAnimation animation = new ScaleAnimation(1.2f
                 , 1.0f
-                , 1.4f
+                , 1.2f
                 , 1.0f
                 , Animation.RELATIVE_TO_SELF
                 , 0.5f
                 , Animation.RELATIVE_TO_SELF
                 , 0.5f);
-        animation.setDuration(500);
+//        animation.setDuration(500);
 //        animation.setRepeatCount(2);
         animation.setFillAfter(true);
 //        animation.setStartOffset(1000);
         view.setAnimation(animation);
         view.startAnimation(animation);
-        LogUtils.e("控件缩小执行完毕!");
+//        LogUtils.e("控件缩小执行完毕!");
     }
 }
