@@ -74,6 +74,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/set_text_size"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp">
@@ -82,6 +83,7 @@
                     android:layout_height="wrap_content"
                     android:text="字体"/>
                 <TextView
+                    android:id="@+id/get_text_size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="中"
@@ -104,6 +106,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/set_night_mode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp">
@@ -112,6 +115,7 @@
                     android:layout_height="wrap_content"
                     android:text="夜间模式"/>
                 <TextView
+                    android:id="@+id/set_screen_brightness"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="白天"
@@ -119,6 +123,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/set_cache"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp">
@@ -127,9 +132,9 @@
                     android:layout_height="wrap_content"
                     android:text="清除缓存"/>
                 <TextView
+                    android:id="@+id/cache_clean"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0M"
                     android:layout_alignParentRight="true"/>
             </RelativeLayout>
 
