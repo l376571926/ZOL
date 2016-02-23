@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <application
         android:name=".other.MyApplication"
@@ -26,22 +27,25 @@
         <activity android:name=".other.ui.HomeActivity" />
         <activity android:name=".module5.ui.LoginActivity" />
         <activity android:name=".module5.ui.RegisterActivity" />
-        <activity android:name=".module5.ui.SecondHandActivity"/>
-        <activity android:name=".module5.ui.AppSettingActivity"/>
-        <activity android:name=".module5.ui.RecommendActivity"/>
+        <activity android:name=".module5.ui.SecondHandActivity" />
+        <activity android:name=".module5.ui.AppSettingActivity" />
+        <activity android:name=".module5.ui.RecommendActivity" />
 
-    <meta-data
-        android:name="UMENG_APPKEY"
-        android:value="56c5299ce0f55a16a3003102" />
-    <meta-data
-        android:name="UMENG_CHANNEL"
-        android:value="Channel ID" />
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="56c5299ce0f55a16a3003102" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Channel ID" />
 
         <service
             android:name="com.umeng.update.net.DownloadingService"
-            android:process=":DownloadingService"/>
+            android:process=":DownloadingService" />
+
         <activity
             android:name="com.umeng.update.UpdateDialogActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name=".module5.ui.ThirdPartyActivity"></activity>
     </application>
+
 </manifest>
