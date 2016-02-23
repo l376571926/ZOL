@@ -1,51 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/frag_news_tt_item"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:id="@+id/frag_news_tt_item_icon_ll"
                   style="@style/fragment_news_margin_and_padding"
-                  android:background="@android:color/white"
+                  android:background="@drawable/frag_shop_lv_item_text_frame"
                   android:gravity="center_vertical"
                   android:orientation="horizontal"
                   android:padding="10dp">
 
-        <ImageView
-            android:id="@+id/toutiao_item_icon"
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/frag_news_tt_item_icon_niv"
             android:layout_width="100dp"
             android:layout_height="70dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:src="@drawable/placeholder"/>
+            android:layout_marginRight="10dp"/>
 
         <LinearLayout
+            android:id="@+id/frag_news_tt_item_title_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/toutiao_item_title"
+                android:id="@+id/frag_news_tt_item_title_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lines="3"
                 android:text="title"/>
 
             <LinearLayout
+                android:id="@+id/frag_news_tt_item_data_ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/toutiao_item_date"
+                    android:id="@+id/frag_news_tt_item_data_tv"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="date"/>
 
                 <TextView
-                    android:id="@+id/comment"
+                    android:id="@+id/frag_news_tt_item_comment_tv"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

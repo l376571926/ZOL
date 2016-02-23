@@ -18,7 +18,7 @@ public class PriceFragment extends BaseFragment implements AdapterView.OnItemCli
     @Override
     protected int getLayout()
     {
-        return R.layout.fragment_price;
+        return R.layout.frag_price;
     }
 
     @Override

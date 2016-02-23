@@ -9,6 +9,7 @@
         style="@style/fragment_news_margin_and_padding"
         android:orientation="vertical">
 
+        <!--搜索栏-->
         <LinearLayout
             android:id="@+id/fragment_news_public_listview_header_search_ll"
             android:layout_width="match_parent"
@@ -32,7 +33,7 @@
         </LinearLayout>
         <!--必须设置高为固定值,否则不显示-->
         <android.support.v4.view.ViewPager
-            android:id="@+id/fragment_news_public_listview_header_container_vp"
+            android:id="@+id/frag_news_public_lv_header_container_vp"
             android:layout_width="match_parent"
             android:layout_height="200dp"/>
     </LinearLayout>

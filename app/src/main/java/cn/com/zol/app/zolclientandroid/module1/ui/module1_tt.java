@@ -8,42 +8,41 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import cn.com.zol.app.zolclientandroid.R;
+import cn.com.zol.app.zolclientandroid.module1.adapter.FragNewsTtItemAdapter;
+import cn.com.zol.app.zolclientandroid.module1.bean.Headline;
+import cn.com.zol.app.zolclientandroid.module1.utils.PublicStringRequestUtils;
 import cn.com.zol.app.zolclientandroid.other.MyApplication;
-import cn.com.zol.app.zolclientandroid.other.adapter.PublicItemAdapter;
-import cn.com.zol.app.zolclientandroid.other.bean.PublicListTItem;
-import cn.com.zol.app.zolclientandroid.other.utils.PublicStringRequestUtils;
 
 /**
  * 头条模块
  * Created by liyiwei on 2016/2/3.
  */
-public class TouTiao extends ListFragment implements PublicStringRequestUtils.OnListDataChangeListener, PublicStringRequestUtils.OnPicsDataChangeListener
+public class Module1_tt extends ListFragment implements PublicStringRequestUtils.OnDataChangeListener
 {
     private List<RelativeLayout> relativeLayoutList = new ArrayList<>();
-    private PublicItemAdapter itemAdapter;
     private PagerAdapter bannerAdapter;
-    private List<PublicListTItem.ListEntity> listEntities;// = new ArrayList<>();
+    private List<Headline.ListEntity> listEntities;// = new ArrayList<>();
+    private FragNewsTtItemAdapter itemAdapter;
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState)
     {
         super.onActivityCreated(savedInstanceState);
 
-        PublicStringRequestUtils requestUtils = new PublicStringRequestUtils(this, this);
+        PublicStringRequestUtils requestUtils = new PublicStringRequestUtils(this);
         /**
-         * 请求头条UI所需要展示的数据
+         * 请求头条所需展示的数据
          */
         requestUtils.request("0", "0");
 
@@ -56,8 +55,8 @@ public class TouTiao extends ListFragment implements PublicStringRequestUtils.On
      */
     private void addListViewHeader()
     {
-        View inflate = getActivity().getLayoutInflater().inflate(R.layout.fragment_news_public_listview_header, null);
-        ViewPager viewPager = ((ViewPager) inflate.findViewById(R.id.fragment_news_public_listview_header_container_vp));
+        View inflate = getActivity().getLayoutInflater().inflate(R.layout.frag_news_public_lv_header, null);
+        ViewPager viewPager = ((ViewPager) inflate.findViewById(R.id.frag_news_public_lv_header_container_vp));
 
         bannerAdapter = new PagerAdapter()
         {
@@ -96,7 +95,7 @@ public class TouTiao extends ListFragment implements PublicStringRequestUtils.On
     private void addListViewBody()
     {
         listEntities = new ArrayList<>();
-        itemAdapter = new PublicItemAdapter(getActivity(), listEntities);
+        itemAdapter = new FragNewsTtItemAdapter(getActivity(), listEntities);
         getListView().setDividerHeight(0);
         setListAdapter(itemAdapter);
     }
@@ -108,26 +107,37 @@ public class TouTiao extends ListFragment implements PublicStringRequestUtils.On
     }
 
     @Override
-    public void setListBodyData(List<PublicListTItem.ListEntity> listEntities)
+    public void setListViewData(String response)
     {
-        this.listEntities.addAll(listEntities);
+//        LogUtils.e("头条模块请求数据成功!response=" + response);
+
+        List<Headline.ListEntity> listEntityList = Headline.ListEntity.arrayListEntityFromData(response, "list");
+        listEntities.addAll(listEntityList);
+
+        updateBannerDate(response);
     }
 
-    @Override
-    public void setListHeaderData(List<PublicListTItem.PicsEntity> picsEntities)
+    /**
+     * 更新横幅广告栏的数据
+     *
+     * @param response 请求到的数据
+     */
+    private void updateBannerDate(String response)
     {
-        relativeLayoutList.clear();
-        for (PublicListTItem.PicsEntity picsEntity : picsEntities)
+        List<Headline.PicsEntity> picsEntityList = Headline.PicsEntity.arrayPicsEntityFromData(response, "pics");
+        for (Headline.PicsEntity picsEntity : picsEntityList)
         {
-            View layout = getActivity().getLayoutInflater().inflate(R.layout.fragment_news_toutiao_banner_item, null);
+            String imgsrc = picsEntity.getImgsrc();
+            String stitle = picsEntity.getStitle();
+
+            View layout = getActivity().getLayoutInflater().inflate(R.layout.frag_news_tt_lv_header, null);
 
             RelativeLayout relativeLayout = (RelativeLayout) layout.findViewById(R.id.container);
-            ImageView imageView = (ImageView) layout.findViewById(R.id.toutiao_item_icon);
-            TextView textView = (TextView) layout.findViewById(R.id.stitle);
+            NetworkImageView imageView = (NetworkImageView) layout.findViewById(R.id.frag_news_tt_item_icon_niv);
+            TextView textView = (TextView) layout.findViewById(R.id.frag_news_tt_lv_header_title_tv);
 
-            String imgsrc = picsEntity.getImgsrc();
-            MyApplication.imageLoader.get(imgsrc, ImageLoader.getImageListener(imageView, 0, 0));
-            String stitle = picsEntity.getStitle();
+            imageView.setImageUrl(imgsrc, MyApplication.imageLoader);
+
             textView.setTextColor(Color.WHITE);
             textView.setText(stitle);
 

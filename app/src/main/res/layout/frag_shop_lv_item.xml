@@ -1,47 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:background="@android:color/transparent"
-             android:padding="10dp">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@android:color/transparent"
+              android:orientation="vertical"
+              android:padding="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!--精选特惠    &&  正品保证,包退包换-->
-        <RelativeLayout
-            android:id="@+id/frag_shop_lv_item_header_rl"
+        <!--1.精选-->
+        <LinearLayout
+            android:id="@+id/frag_shop_lv_item_choiceness_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"
             android:visibility="gone">
 
+            <!--1.1.精选特惠-->
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:drawableLeft="@drawable/ele_choice"
                 android:drawableStart="@drawable/ele_choice"
                 android:text="精选特惠"/>
 
+            <!--1.2.正品保证-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
+                android:gravity="end"
                 android:text="正品保证,包退包换"
                 android:textColor="#c9c9c9"/>
-        </RelativeLayout>
+        </LinearLayout>
 
-        <!--图片-->
+        <!--2.图片-->
         <RelativeLayout
-            android:id="@+id/frag_shop_lv_item_up_section_rl"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <!--剩几天-->
+            android:layout_height="wrap_content"
+            android:background="#0f0">
+
+            <!--2.1.商品图片-->
+            <com.android.volley.toolbox.NetworkImageView
+                android:id="@+id/goods_pic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <!--2.2.剩几天-->
             <TextView
-                android:id="@+id/status"
+                android:id="@+id/frag_shop_lv_item_remains_day_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -50,28 +62,18 @@
                 android:drawablePadding="10dp"
                 android:drawableStart="@drawable/choice_time"
                 android:padding="5dp"
-                android:text="@string/remain_days"
-                android:textColor="@color/white"
-                android:visibility="invisible"/>
+                android:text="剩8天"
+                android:textColor="@color/white"/>
 
-            <!--商品图片-->
-            <ImageView
-                android:id="@+id/goods_pic"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/bg_attention"
-                android:scaleType="fitXY"/>
-
-            <!--今日爆款-->
+            <!--2.3.今日爆款-->
             <LinearLayout
                 android:id="@+id/frag_shop_lv_care_count_ll"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@id/goods_pic"
                 android:orientation="horizontal"
-                android:visibility="invisible">
-                <!--今日爆款-->
+                android:visibility="gone">
+                <!--2.3.1.今日爆款-->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -83,7 +85,7 @@
                     android:paddingStart="10dp"
                     android:text="今日爆款"
                     android:textColor="@color/white"/>
-                <!--关注量-->
+                <!--2.3.2.关注量-->
                 <TextView
                     android:id="@+id/frag_shop_lv_item_care_count_tv"
                     android:layout_width="wrap_content"
@@ -97,22 +99,25 @@
                     android:text="@string/care_count"
                     android:textColor="@color/white"/>
             </LinearLayout>
+
         </RelativeLayout>
 
-        <!--商品介绍-->
-        <RelativeLayout
+        <!--3.商城-->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/frag_shop_lv_item_text_frame"
+            android:orientation="vertical"
             android:padding="10dp">
 
-            <!--商品介绍-->
+            <!--3.1商城-->
             <LinearLayout
                 android:id="@+id/frag_shop_lv_item_goods_name_ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
+                <!--3.1.1.商城-->
                 <TextView
                     android:id="@+id/frag_shop_lv_item_goods_name_header_tv"
                     android:layout_width="wrap_content"
@@ -125,6 +130,7 @@
                     android:text="商城"
                     android:textColor="@color/white"/>
 
+                <!--3.1.2.人体工学-->
                 <TextView
                     android:id="@+id/goods_name"
                     android:layout_width="match_parent"
@@ -135,59 +141,63 @@
                     android:text="人体工学舒适握持感 定位准 3档DPI调节 轻松适应各种鼠标表面"/>
             </LinearLayout>
 
-            <RelativeLayout
+            <!--3.2.抢购价-->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/frag_shop_lv_item_goods_name_ll">
-                <!--抢购价-->
+                android:orientation="horizontal">
+
+                <!--3.2.1.抢购价-->
                 <LinearLayout
                     android:id="@+id/frag_shop_lv_item_sale_price_ll"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
                     android:padding="5dp">
-                    <!--抢购价,文字-->
-                    <TextView
-                        android:id="@+id/frag_shop_lv_item_unused1_tv"
+                    <!--3.2.1.1.抢购价-->
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/rob_shop_price"
-                        android:textColor="#999999"/>
-                    <!--抢购价,价格-->
+                        android:orientation="horizontal">
+                        <!--抢购价,文字-->
+                        <TextView
+                            android:id="@+id/frag_shop_lv_item_unused1_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/rob_shop_price"
+                            android:textColor="#999999"/>
+                        <!--抢购价,价格-->
+                        <TextView
+                            android:id="@+id/frag_shop_lv_item_sale_price_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/price_place_holder"
+                            android:textColor="#cc0000"
+                            android:textSize="25sp"/>
+
+                    </LinearLayout>
+                    <!--3.2.1.2市场价-->
                     <TextView
-                        android:id="@+id/frag_shop_lv_item_sale_price_tv"
+                        android:id="@+id/frag_shop_lv_item_market_price_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/price_place_holder"
-                        android:textColor="#cc0000"
-                        android:textSize="25sp"/>
+                        android:textColor="#c1bfbf"/>
                 </LinearLayout>
 
-                <!--市场价-->
-                <TextView
-                    android:id="@+id/frag_shop_lv_item_market_price_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/frag_shop_lv_item_sale_price_ll"
-                    android:text="@string/price_place_holder"
-                    android:textColor="#c1bfbf"
-                    android:visibility="invisible"/>
-
-                <!--立即抢购-->
+                <!--3.2.2.抢购-->
                 <Button
                     android:id="@+id/frag_shop_lv_item_buy_now_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
                     android:background="@drawable/electricity_buying"
                     android:text="@string/shopping_at_once"
                     android:textColor="@color/red"/>
+            </LinearLayout>
 
-            </RelativeLayout>
+        </LinearLayout>
 
-        </RelativeLayout>
     </LinearLayout>
-</FrameLayout>
+</LinearLayout>

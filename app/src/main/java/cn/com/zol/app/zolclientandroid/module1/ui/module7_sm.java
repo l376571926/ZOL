@@ -1,17 +1,18 @@
-package cn.com.zol.app.zolclientandroid.module3.ui;
+package cn.com.zol.app.zolclientandroid.module1.ui;
 
 import cn.com.zol.app.zolclientandroid.R;
 import cn.com.zol.app.zolclientandroid.other.ui.BaseFragment;
 
 /**
- * Created by liyiwei on 2016/2/2.
+ * Created by liyiwei on 2016/2/3.
  */
-public class BbsFragment extends BaseFragment
+public class Module7_sm extends BaseFragment
 {
+
     @Override
     protected int getLayout()
     {
-        return R.layout.frag_bbs;
+        return R.layout.fragment_news_shuma;
     }
 
     @Override

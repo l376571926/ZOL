@@ -4,21 +4,21 @@ import cn.com.zol.app.zolclientandroid.R;
 import cn.com.zol.app.zolclientandroid.other.ui.BaseFragment;
 
 /**
+ * 导购模块
  * Created by liyiwei on 2016/2/3.
  */
-public class ShouJi extends BaseFragment
+public class Module11_dg extends BaseFragment
 {
 
     @Override
     protected int getLayout()
     {
-        return R.layout.fragment_news_shouji;
+        return R.layout.fragment_news_daogou;
     }
 
     @Override
     protected void initView()
     {
-
 
     }
 

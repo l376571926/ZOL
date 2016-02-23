@@ -24,7 +24,8 @@
     <string name="robsofa">抢沙发</string>
     <string name="shopping_at_once">立即抢购</string>
     <string name="price_place_holder">￥%1$s</string>
-    <string name="remain_days">%1$s</string>
     <string name="rob_shop_price">抢购价:</string>
     <string name="care_count">%1$s人关注</string>
+    <string name="frag_news_xw_item_title">支付大战来袭 关于三星Pay你应该了解的</string>
+    <string name="frag_news_xw_item_comment_down">%1$s评论</string>
 </resources>

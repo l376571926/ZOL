@@ -6,7 +6,7 @@ import cn.com.zol.app.zolclientandroid.other.ui.BaseFragment;
 /**
  * Created by liyiwei on 2016/2/3.
  */
-public class WaiShe extends BaseFragment
+public class Module10_ws extends BaseFragment
 {
 
     @Override

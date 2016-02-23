@@ -4,100 +4,143 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <RadioGroup
-        android:id="@+id/fragment_news_rebang_header_rg"
+    <!--搜索栏-->
+    <LinearLayout
+        android:id="@+id/fragment_news_public_listview_header_search_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp">
+        android:layout_margin="5dp"
+        android:background="@drawable/bg_search"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/fragment_news_rebang_header_3d_rb"
-            style="@style/activity_base_radio_button"
-            android:drawableTop="@drawable/icon_hotlist_3d"
-            android:text="three_hot_bang"/>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/icon_news_search"/>
 
-        <RadioButton
-            android:id="@+id/fragment_news_rebang_header_1w_rb"
-            style="@style/activity_base_radio_button"
-            android:drawableTop="@drawable/icon_hotlist_1w"
-            android:text="three_hot_bang"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="搜索"/>
+    </LinearLayout>
 
-        <RadioButton
-            android:id="@+id/fragment_news_rebang_header_1m_rb"
-            style="@style/activity_base_radio_button"
-            android:drawableTop="@drawable/icon_hotlist_1m"
-            android:text="three_hot_bang"/>
-
-    </RadioGroup>
-
-    <HorizontalScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="none">
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:background="@drawable/frag_shop_lv_item_text_frame"
+        android:orientation="vertical">
 
+        <!--三日热榜-->
         <RadioGroup
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/fragment_news_rebang_second_header_rg"
+            android:id="@+id/fragment_news_rebang_header_rg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="10dp">
+            android:paddingTop="5dp">
 
             <RadioButton
-                android:id="@+id/fragment_news_rebang_header_category_apple_rb"
-                style="@style/fragment_news_rebang_radio_button"
-                android:drawableTop="@drawable/icon_hotlist_apple"
-                android:text="item1"/>
+                android:id="@+id/fragment_news_rebang_header_3d_rb"
+                style="@style/activity_base_radio_button"
+                android:drawableTop="@drawable/icon_hotlist_3d"
+                android:text="三日热榜"/>
 
             <RadioButton
-                android:id="@+id/fragment_news_rebang_header_category_phone_rb"
-                style="@style/fragment_news_rebang_radio_button"
-                android:drawableTop="@drawable/icon_hotlist_phone"
-                android:text="item2"/>
+                android:id="@+id/fragment_news_rebang_header_1w_rb"
+                style="@style/activity_base_radio_button"
+                android:layout_marginTop="10dp"
+                android:drawableTop="@drawable/icon_hotlist_1w"
+                android:text="一周热榜"/>
 
             <RadioButton
-                android:id="@+id/fragment_news_rebang_header_category_zanji_rb"
-                style="@style/fragment_news_rebang_radio_button"
-                android:drawableTop="@drawable/icon_hotlist_zanji"
-                android:text="item3"/>
-
-            <RadioButton
-                android:id="@+id/fragment_news_rebang_header_category_review_rb"
-                style="@style/fragment_news_rebang_radio_button"
-                android:drawableTop="@drawable/icon_hotlist_review"
-                android:text="item4"/>
-
-            <RadioButton
-                android:id="@+id/fragment_news_rebang_header_category_digital_rb"
-                style="@style/fragment_news_rebang_radio_button"
-                android:drawableTop="@drawable/icon_hotlist_shuma"
-                android:text="item5"/>
-
-            <RadioButton
-                android:id="@+id/fragment_news_rebang_header_category_pc_rb"
-                style="@style/fragment_news_rebang_radio_button"
-                android:drawableTop="@drawable/icon_hotlist_computer"
-                android:text="item6"/>
-
-            <RadioButton
-                android:id="@+id/fragment_news_rebang_header_device_rb"
-                style="@style/fragment_news_rebang_radio_button"
-                android:drawableTop="@drawable/icon_hotlist_waishe"
-                android:text="item7"/>
-
-            <RadioButton
-                android:id="@+id/fragment_news_rebang_header_shopping_rb"
-                style="@style/fragment_news_rebang_radio_button"
-                android:drawableTop="@drawable/icon_hotlist_shopping"
-                android:text="item8"/>
-
-            <RadioButton
-                android:id="@+id/fragment_news_rebang_header_photography_rb"
-                style="@style/fragment_news_rebang_radio_button"
-                android:drawableTop="@drawable/icon_hotlist_photography"
-                android:text="item9"/>
+                android:id="@+id/fragment_news_rebang_header_1m_rb"
+                style="@style/activity_base_radio_button"
+                android:drawableTop="@drawable/icon_hotlist_1m"
+                android:text="一月热榜"/>
 
         </RadioGroup>
-    </HorizontalScrollView>
+
+        <!--灰色分割线-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/shape_divider"/>
+
+        <!--苹果-->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <RadioGroup
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/fragment_news_rebang_second_header_rg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <RadioButton
+                    android:id="@+id/fragment_news_rebang_header_category_apple_rb"
+                    style="@style/fragment_news_rebang_radio_button"
+                    android:drawableTop="@drawable/icon_hotlist_apple"
+                    android:text="苹果"/>
+
+                <RadioButton
+                    android:id="@+id/fragment_news_rebang_header_category_phone_rb"
+                    style="@style/fragment_news_rebang_radio_button"
+                    android:drawableTop="@drawable/icon_hotlist_phone"
+                    android:text="手机"/>
+
+                <RadioButton
+                    android:id="@+id/fragment_news_rebang_header_category_zanji_rb"
+                    style="@style/fragment_news_rebang_radio_button"
+                    android:drawableTop="@drawable/icon_hotlist_zanji"
+                    android:text="攒机"/>
+
+                <RadioButton
+                    android:id="@+id/fragment_news_rebang_header_category_review_rb"
+                    style="@style/fragment_news_rebang_radio_button"
+                    android:drawableTop="@drawable/icon_hotlist_review"
+                    android:text="评测"/>
+
+                <RadioButton
+                    android:id="@+id/fragment_news_rebang_header_category_digital_rb"
+                    style="@style/fragment_news_rebang_radio_button"
+                    android:drawableTop="@drawable/icon_hotlist_shuma"
+                    android:text="数码"/>
+
+                <RadioButton
+                    android:id="@+id/fragment_news_rebang_header_category_pc_rb"
+                    style="@style/fragment_news_rebang_radio_button"
+                    android:drawableTop="@drawable/icon_hotlist_computer"
+                    android:text="电脑"/>
+
+                <RadioButton
+                    android:id="@+id/fragment_news_rebang_header_device_rb"
+                    style="@style/fragment_news_rebang_radio_button"
+                    android:drawableTop="@drawable/icon_hotlist_waishe"
+                    android:text="外设"/>
+
+                <RadioButton
+                    android:id="@+id/fragment_news_rebang_header_shopping_rb"
+                    style="@style/fragment_news_rebang_radio_button"
+                    android:drawableTop="@drawable/icon_hotlist_shopping"
+                    android:text="导购"/>
+
+                <RadioButton
+                    android:id="@+id/fragment_news_rebang_header_photography_rb"
+                    style="@style/fragment_news_rebang_radio_button"
+                    android:drawableTop="@drawable/icon_hotlist_photography"
+                    android:text="摄影"/>
+
+            </RadioGroup>
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
 </LinearLayout>

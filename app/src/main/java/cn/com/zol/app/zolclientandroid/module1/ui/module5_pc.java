@@ -14,7 +14,7 @@ import cn.com.zol.app.zolclientandroid.other.ui.BaseFragment;
 /**
  * Created by liyiwei on 2016/2/3.
  */
-public class PingCe extends BaseFragment
+public class Module5_pc extends BaseFragment
 {
     private Button zoomInBtn;
     private Button zoomOutBtn;

@@ -38,11 +38,11 @@
     <style name="activity_base_radio_button">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:button">@null</item>
         <item name="android:gravity">center</item>
-        <item name="android:textSize">12sp</item>
         <item name="android:clickable">true</item>
+        <item name="android:drawablePadding">10dp</item>
     </style>
     <!--BaseActivity上部titlebar的样式-->
     <style name="fragment_news_titlebar">
@@ -53,7 +53,6 @@
         <item name="android:layout_marginLeft">10dp</item>
         <item name="android:layout_marginRight">10dp</item>
         <item name="android:gravity">center</item>
-        <item name="android:textSize">20sp</item>
         <item name="android:textColor">#ffbee2ff</item>
         <item name="android:clickable">true</item>
     </style>
@@ -66,6 +65,7 @@
         <item name="android:layout_marginRight">20dp</item>
         <item name="android:gravity">center</item>
         <item name="android:clickable">true</item>
+        <item name="android:drawablePadding">10dp</item>
     </style>
 
     <style name="fragment_shop_radio_button">

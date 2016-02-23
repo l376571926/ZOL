@@ -6,13 +6,13 @@ import cn.com.zol.app.zolclientandroid.other.ui.BaseFragment;
 /**
  * Created by liyiwei on 2016/2/3.
  */
-public class ShuMa extends BaseFragment
+public class Module12_zb extends BaseFragment
 {
 
     @Override
     protected int getLayout()
     {
-        return R.layout.fragment_news_shuma;
+        return R.layout.fragment_news_zhibo;
     }
 
     @Override

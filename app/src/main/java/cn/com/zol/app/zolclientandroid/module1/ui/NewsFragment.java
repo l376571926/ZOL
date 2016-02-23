@@ -91,18 +91,18 @@ public class NewsFragment extends BaseFragment implements ViewPager.OnPageChange
          * 要展示在ViewPager中的fragment
          */
         final List<Fragment> fragmentList = new ArrayList<>();
-        fragmentList.add(new TouTiao());
-        fragmentList.add(new ReBang());
-        fragmentList.add(new DingYue());
-        fragmentList.add(new XinWen());
-        fragmentList.add(new PingCe());
-        fragmentList.add(new ShouJi());
-        fragmentList.add(new ShuMa());
-        fragmentList.add(new DianNao());
-        fragmentList.add(new ZangJi());
-        fragmentList.add(new WaiShe());
-        fragmentList.add(new DaoGou());
-        fragmentList.add(new ZhiBo());
+        fragmentList.add(new Module1_tt());
+        fragmentList.add(new Module2_rb());
+        fragmentList.add(new Module3_dy());
+        fragmentList.add(new Module4_xw());
+        fragmentList.add(new Module5_pc());
+        fragmentList.add(new Module6_sj());
+        fragmentList.add(new Module7_sm());
+        fragmentList.add(new Module8_dn());
+        fragmentList.add(new Module9_zj());
+        fragmentList.add(new Module10_ws());
+        fragmentList.add(new Module11_dg());
+        fragmentList.add(new Module12_zb());
 
         viewPager.setAdapter(new FragmentStatePagerAdapter(getChildFragmentManager())
         {

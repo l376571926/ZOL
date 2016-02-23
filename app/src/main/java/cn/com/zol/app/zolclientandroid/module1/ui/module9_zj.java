@@ -6,13 +6,13 @@ import cn.com.zol.app.zolclientandroid.other.ui.BaseFragment;
 /**
  * Created by liyiwei on 2016/2/3.
  */
-public class DianNao extends BaseFragment
+public class Module9_zj extends BaseFragment
 {
 
     @Override
     protected int getLayout()
     {
-        return R.layout.fragment_news_diannao;
+        return R.layout.fragment_news_zangji;
     }
 
     @Override

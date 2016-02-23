@@ -4,8 +4,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/toutiao_item_icon"
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/frag_news_tt_item_icon_niv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"/>
@@ -17,7 +17,7 @@
         android:background="@drawable/shape_frag_news_toutiao_banner_title_bg">
 
         <TextView
-            android:id="@+id/stitle"
+            android:id="@+id/frag_news_tt_lv_header_title_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="5dp"
@@ -30,7 +30,7 @@
             android:textColor="@color/white"/>
 
         <TextView
-            android:id="@+id/frag_news_tt_banner_item_count_tv"
+            android:id="@+id/frag_news_tt_lv_header_count_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"

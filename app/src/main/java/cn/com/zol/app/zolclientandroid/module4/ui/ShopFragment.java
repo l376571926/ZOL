@@ -48,7 +48,7 @@ public class ShopFragment extends BaseFragment
     @Override
     protected int getLayout()
     {
-        return R.layout.fragment_shop;
+        return R.layout.frag_shop;
     }
 
     private ViewPager viewPager;

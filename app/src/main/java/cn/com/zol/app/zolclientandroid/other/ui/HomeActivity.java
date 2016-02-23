@@ -3,8 +3,6 @@ package cn.com.zol.app.zolclientandroid.other.ui;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
-import android.view.View;
-import android.webkit.WebView;
 import android.widget.RadioGroup;
 
 import cn.com.zol.app.zolclientandroid.R;
@@ -137,16 +135,16 @@ public class HomeActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     {
         if (keyCode == KeyEvent.KEYCODE_BACK)
         {
-            View inflate = getLayoutInflater().inflate(R.layout.fragment_news_dingyue, null);
-            WebView webView = (WebView) inflate.findViewById(R.id.fragment_news_dingyue_content_wv);
-            if (webView.canGoBack())
-            {
-                webView.goBack();
-                return true;
-            } else
-            {
-                return super.onKeyDown(keyCode, event);
-            }
+//            View inflate = getLayoutInflater().inflate(R.layout.frag_news_dy, null);
+//            WebView webView = (WebView) inflate.findViewById(R.id.fragment_news_dingyue_content_wv);
+//            if (webView.canGoBack())
+//            {
+//                webView.goBack();
+//                return true;
+//            } else
+//            {
+//                return super.onKeyDown(keyCode, event);
+//            }
         }
         return super.onKeyDown(keyCode, event);
     }

@@ -1,13 +1,11 @@
-package cn.com.zol.app.zolclientandroid.other.utils;
+package cn.com.zol.app.zolclientandroid.module1.utils;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-
-import java.util.List;
+import com.lidroid.xutils.util.LogUtils;
 
 import cn.com.zol.app.zolclientandroid.other.MyApplication;
-import cn.com.zol.app.zolclientandroid.other.bean.PublicListTItem;
 
 /**
  * 资讯模块下各子模块网络数据请求公有类
@@ -15,23 +13,11 @@ import cn.com.zol.app.zolclientandroid.other.bean.PublicListTItem;
  */
 public class PublicStringRequestUtils
 {
-    private OnListDataChangeListener listInvoker;
-    private OnPicsDataChangeListener picsInvoker;
+    private OnDataChangeListener onListDataChangeListener;
 
-    public PublicStringRequestUtils(OnListDataChangeListener listInvoker)
+    public PublicStringRequestUtils(OnDataChangeListener onListDataChangeListener)
     {
-        this.listInvoker = listInvoker;
-    }
-
-    public PublicStringRequestUtils(OnPicsDataChangeListener picsInvoker)
-    {
-        this.picsInvoker = picsInvoker;
-    }
-
-    public PublicStringRequestUtils(OnListDataChangeListener listInvoker, OnPicsDataChangeListener picsInvoker)
-    {
-        this.listInvoker = listInvoker;
-        this.picsInvoker = picsInvoker;
+        this.onListDataChangeListener = onListDataChangeListener;
     }
 
     /**
@@ -67,18 +53,10 @@ public class PublicStringRequestUtils
             @Override
             public void onResponse(String response)
             {
-                List<PublicListTItem.ListEntity> listEntities = PublicListTItem.ListEntity.arrayListEntityFromData(response, "list");
-//                LogUtils.e("请求数据成功,listEntities.size()=" + listEntities.size() + "");
-                if (listInvoker != null)
+//                LogUtils.e("请求数据成功,response=" + response);
+                if (onListDataChangeListener != null)
                 {
-                    listInvoker.setListBodyData(listEntities);
-                }
-
-                List<PublicListTItem.PicsEntity> picsEntities = PublicListTItem.PicsEntity.arrayPicsEntityFromData(response, "pics");
-//                LogUtils.e("请求数据成功,picsEntities.size()=" + picsEntities.size() + "");
-                if (picsInvoker != null)
-                {
-                    picsInvoker.setListHeaderData(picsEntities);
+                    onListDataChangeListener.setListViewData(response);
                 }
             }
         }
@@ -87,19 +65,14 @@ public class PublicStringRequestUtils
             @Override
             public void onErrorResponse(VolleyError error)
             {
-//                LogUtils.e("请求数据失败:" + error.getMessage());
+                LogUtils.e("请求数据失败:" + error.getMessage());
             }
         });
         MyApplication.requestQueue.add(request);
     }
 
-    public interface OnListDataChangeListener
+    public interface OnDataChangeListener
     {
-        void setListBodyData(List<PublicListTItem.ListEntity> listEntities);
-    }
-
-    public interface OnPicsDataChangeListener
-    {
-        void setListHeaderData(List<PublicListTItem.PicsEntity> picsEntities);
+        void setListViewData(String response);
     }
 }

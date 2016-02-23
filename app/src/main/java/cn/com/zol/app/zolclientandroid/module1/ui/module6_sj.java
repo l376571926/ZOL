@@ -6,18 +6,19 @@ import cn.com.zol.app.zolclientandroid.other.ui.BaseFragment;
 /**
  * Created by liyiwei on 2016/2/3.
  */
-public class ZhiBo extends BaseFragment
+public class Module6_sj extends BaseFragment
 {
 
     @Override
     protected int getLayout()
     {
-        return R.layout.fragment_news_zhibo;
+        return R.layout.fragment_news_shouji;
     }
 
     @Override
     protected void initView()
     {
+
 
     }
 
