@@ -56,6 +56,7 @@
 
 
             <RelativeLayout
+                android:id="@+id/set_third_party"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
@@ -141,12 +142,14 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp">
+                android:layout_margin="15dp"
+                >
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="页面手势右滑"/>
                 <CheckBox
+                    android:id="@+id/set_right_scroll"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:layout_alignParentRight="true"
@@ -168,6 +171,7 @@
                     android:layout_height="wrap_content"
                     android:text="移动网络不显示图片"/>
                 <CheckBox
+                    android:id="@+id/set_display_img"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:layout_alignParentRight="true"
@@ -176,6 +180,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/set_image_quality"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp">
@@ -184,6 +189,7 @@
                     android:layout_height="wrap_content"
                     android:text="图片质量"/>
                 <TextView
+                    android:id="@+id/image_mode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="高品质"
@@ -204,6 +210,7 @@
                     android:layout_height="wrap_content"
                     android:text="文章推送"/>
                 <CheckBox
+                    android:id="@+id/set_pull_article"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:layout_alignParentRight="true"
@@ -220,6 +227,7 @@
                     android:layout_height="wrap_content"
                     android:text="通知推送"/>
                 <CheckBox
+                    android:id="@+id/set_pull_notification"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:layout_alignParentRight="true"

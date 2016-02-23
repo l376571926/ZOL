@@ -27,4 +27,5 @@
     <string name="remain_days">%1$s</string>
     <string name="rob_shop_price">抢购价:</string>
     <string name="care_count">%1$s人关注</string>
+    <string name="Admin">账号管理</string>
 </resources>

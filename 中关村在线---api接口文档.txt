@@ -1,4 +1,4 @@
-全国省市县数据接口
+﻿全国省市县数据接口
 http://lib3.wap.zol.com.cn/index.php?c=Android_Public_City&noParam=1&imei=352284040670808
 GET
 c			Android_Public_City
@@ -122,6 +122,10 @@ page		1
 
 
 
+
+登录接口：http://direct.wap.zol.com.cn/user_login.php?ssid=096f3c5e6898bf1&vs=and420
+
+Get请求： ssid  vs
 
 
 
