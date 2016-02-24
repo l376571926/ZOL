@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -102,24 +103,30 @@ public class FragNewsTtItemAdapter<T> extends BaseAdapter
 
     }
 
-    protected class ViewHolder
-    {
+    protected class ViewHolder {
         private LinearLayout fragNewsTtItem;
         private LinearLayout fragNewsTtItemIconLl;
         private NetworkImageView fragNewsTtItemIconNiv;
         private LinearLayout fragNewsTtItemTitleLl;
         private TextView fragNewsTtItemTitleTv;
+        private LinearLayout fragNewsTtItemCenterIconsLl;
+        private ImageView fragNewsTtItemIcon1Iv;
+        private ImageView fragNewsTtItemIcon2Iv;
+        private ImageView fragNewsTtItemIcon3Iv;
         private LinearLayout fragNewsTtItemDataLl;
         private TextView fragNewsTtItemDataTv;
         private TextView fragNewsTtItemCommentTv;
 
-        public ViewHolder(View view)
-        {
+        public ViewHolder(View view) {
             fragNewsTtItem = (LinearLayout) view.findViewById(R.id.frag_news_tt_item);
             fragNewsTtItemIconLl = (LinearLayout) view.findViewById(R.id.frag_news_tt_item_icon_ll);
             fragNewsTtItemIconNiv = (NetworkImageView) view.findViewById(R.id.frag_news_tt_item_icon_niv);
             fragNewsTtItemTitleLl = (LinearLayout) view.findViewById(R.id.frag_news_tt_item_title_ll);
             fragNewsTtItemTitleTv = (TextView) view.findViewById(R.id.frag_news_tt_item_title_tv);
+            fragNewsTtItemCenterIconsLl = (LinearLayout) view.findViewById(R.id.frag_news_tt_item_center_icons_ll);
+            fragNewsTtItemIcon1Iv = (ImageView) view.findViewById(R.id.frag_news_tt_item_icon1_iv);
+            fragNewsTtItemIcon2Iv = (ImageView) view.findViewById(R.id.frag_news_tt_item_icon2_iv);
+            fragNewsTtItemIcon3Iv = (ImageView) view.findViewById(R.id.frag_news_tt_item_icon3_iv);
             fragNewsTtItemDataLl = (LinearLayout) view.findViewById(R.id.frag_news_tt_item_data_ll);
             fragNewsTtItemDataTv = (TextView) view.findViewById(R.id.frag_news_tt_item_data_tv);
             fragNewsTtItemCommentTv = (TextView) view.findViewById(R.id.frag_news_tt_item_comment_tv);

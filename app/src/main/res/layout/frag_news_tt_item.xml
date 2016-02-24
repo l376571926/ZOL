@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/frag_news_tt_item"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+    android:id="@+id/frag_news_tt_item"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:id="@+id/frag_news_tt_item_icon_ll"
-                  style="@style/fragment_news_margin_and_padding"
-                  android:background="@drawable/frag_shop_lv_item_text_frame"
-                  android:gravity="center_vertical"
-                  android:orientation="horizontal"
-                  android:padding="10dp">
+        android:id="@+id/frag_news_tt_item_icon_ll"
+        style="@style/fragment_news_margin_and_padding"
+        android:background="@drawable/frag_shop_lv_item_text_frame"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <com.android.volley.toolbox.NetworkImageView
             android:id="@+id/frag_news_tt_item_icon_niv"
             android:layout_width="100dp"
             android:layout_height="70dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginRight="10dp"
+            android:background="#0f0" />
 
         <LinearLayout
             android:id="@+id/frag_news_tt_item_title_ll"
@@ -32,28 +33,69 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lines="3"
-                android:text="title"/>
+                android:text="title" />
+
+            <LinearLayout
+                android:id="@+id/frag_news_tt_item_center_icons_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/frag_news_tt_item_icon1_iv"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_weight="1"
+                    android:background="#0f0" />
+
+                <ImageView
+                    android:id="@+id/frag_news_tt_item_icon2_iv"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="#0f0" />
+
+                <ImageView
+                    android:id="@+id/frag_news_tt_item_icon3_iv"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_weight="1"
+                    android:background="#0f0" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/frag_news_tt_item_data_ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/frag_news_tt_item_data_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="date" />
+
+                <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:text="date"/>
+                    android:gravity="end"
+                    android:text="15图" />
 
                 <TextView
                     android:id="@+id/frag_news_tt_item_comment_tv"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="right"
-                    android:text="comment"/>
+                    android:gravity="end"
+                    android:text="comment" />
             </LinearLayout>
         </LinearLayout>
 

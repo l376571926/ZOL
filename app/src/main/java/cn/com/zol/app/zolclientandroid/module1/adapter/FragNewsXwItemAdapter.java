@@ -19,44 +19,37 @@ import cn.com.zol.app.zolclientandroid.R;
 import cn.com.zol.app.zolclientandroid.module1.bean.News;
 import cn.com.zol.app.zolclientandroid.other.MyApplication;
 
-public class FragNewsXwItemAdapter<T> extends BaseAdapter
-{
+public class FragNewsXwItemAdapter<T> extends BaseAdapter {
 
     private List<T> objects = new ArrayList<T>();
 
     private Context context;
     private LayoutInflater layoutInflater;
 
-    public FragNewsXwItemAdapter(Context context, List<T> objects)
-    {
+    public FragNewsXwItemAdapter(Context context, List<T> objects) {
         this.context = context;
         this.objects = objects;
         this.layoutInflater = LayoutInflater.from(context);
     }
 
     @Override
-    public int getCount()
-    {
+    public int getCount() {
         return objects.size();
     }
 
     @Override
-    public T getItem(int position)
-    {
+    public T getItem(int position) {
         return objects.get(position);
     }
 
     @Override
-    public long getItemId(int position)
-    {
+    public long getItemId(int position) {
         return position;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent)
-    {
-        if (convertView == null)
-        {
+    public View getView(int position, View convertView, ViewGroup parent) {
+        if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.frag_news_xw_item, null);
             convertView.setTag(new ViewHolder(convertView));
         }
@@ -64,9 +57,7 @@ public class FragNewsXwItemAdapter<T> extends BaseAdapter
         return convertView;
     }
 
-    private void initializeViews(T object, ViewHolder holder)
-    {
-        boolean showComment = false;
+    private void initializeViews(T object, ViewHolder holder) {
         /**
          * 更新时间
          * (11,15)
@@ -85,8 +76,7 @@ public class FragNewsXwItemAdapter<T> extends BaseAdapter
          */
         String imgsrc = ((News.ListEntity) object).getImgsrc();
         List<String> pics = ((News.ListEntity) object).getPics();
-        if (pics.size() == 3)
-        {
+        if (pics.size() == 3) {
             holder.fragNewsXwItemIconsLl.setVisibility(View.VISIBLE);
             holder.fragNewsXwItemIconRightIv.setVisibility(View.GONE);
 
@@ -95,14 +85,12 @@ public class FragNewsXwItemAdapter<T> extends BaseAdapter
             int measuredWidth = holder.fragNewsXwItemIconsLl.getMeasuredWidth();
             int measuredHeight = holder.fragNewsXwItemIconsLl.getMeasuredHeight();
 
-            LogUtils.e(width + " " + height + " " + measuredWidth + " " + measuredHeight);
+//            LogUtils.e(width + " " + height + " " + measuredWidth + " " + measuredHeight);
 
             holder.fragNewsXwItemIcon1Iv.setImageUrl(pics.get(0), MyApplication.imageLoader);
             holder.fragNewsXwItemIcon2Iv.setImageUrl(pics.get(1), MyApplication.imageLoader);
             holder.fragNewsXwItemIcon3Iv.setImageUrl(pics.get(2), MyApplication.imageLoader);
-        } else
-        {
-            showComment = true;
+        } else {
 
             holder.fragNewsXwItemIconsLl.setVisibility(View.GONE);
             holder.fragNewsXwItemIconRightIv.setVisibility(View.VISIBLE);
@@ -124,24 +112,21 @@ public class FragNewsXwItemAdapter<T> extends BaseAdapter
         /**
          * 当pics里有三张图片时,优先显示三张图片
          */
-        if (showComment)
-        {
+        if (pics.size() != 3) {
             holder.fragNewsXwItemCommentDownTv.setVisibility(View.VISIBLE);
-            if (imgsrc.length() == 0)
-            {
+            if (imgsrc.length() == 0) {
                 holder.fragNewsXwItemCommentDownTv.setGravity(Gravity.RIGHT);
-            } else
-            {
+            } else {
                 holder.fragNewsXwItemCommentDownTv.setGravity(Gravity.LEFT);
             }
-            if (comment_num.equals("0"))
-            {
+            if (comment_num.equals("0")) {
                 holder.fragNewsXwItemCommentDownTv.setText(context.getResources().getString(R.string.robsofa));
-            } else
-            {
+            } else {
                 comment_num = context.getResources().getString(R.string.comment, comment_num);
                 holder.fragNewsXwItemCommentDownTv.setText(comment_num);
             }
+        } else {
+            holder.fragNewsXwItemCommentDownTv.setVisibility(View.GONE);
         }
 
         String id = ((News.ListEntity) object).getId();
@@ -156,8 +141,7 @@ public class FragNewsXwItemAdapter<T> extends BaseAdapter
         String url = ((News.ListEntity) object).getUrl();
     }
 
-    protected class ViewHolder
-    {
+    protected class ViewHolder {
         private LinearLayout fragNewsXwItemLl;
         private TextView fragNewsXwItemDateTv;
         private LinearLayout fragNewsXwItemTitleLl;
@@ -169,8 +153,7 @@ public class FragNewsXwItemAdapter<T> extends BaseAdapter
         private TextView fragNewsXwItemCommentDownTv;
         private NetworkImageView fragNewsXwItemIconRightIv;
 
-        public ViewHolder(View view)
-        {
+        public ViewHolder(View view) {
             fragNewsXwItemLl = (LinearLayout) view.findViewById(R.id.frag_news_xw_item_ll);
             fragNewsXwItemDateTv = (TextView) view.findViewById(R.id.frag_news_xw_item_date_tv);
             fragNewsXwItemTitleLl = (LinearLayout) view.findViewById(R.id.frag_news_xw_item_title_ll);

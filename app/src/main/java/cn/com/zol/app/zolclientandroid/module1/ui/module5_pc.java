@@ -1,112 +1,62 @@
 package cn.com.zol.app.zolclientandroid.module1.ui;
 
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.ScaleAnimation;
-import android.widget.Button;
-import android.widget.TextView;
 
-import com.lidroid.xutils.util.LogUtils;
+import com.orhanobut.logger.Logger;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import cn.com.zol.app.zolclientandroid.R;
-import cn.com.zol.app.zolclientandroid.other.ui.BaseFragment;
+import cn.com.zol.app.zolclientandroid.module1.adapter.FragNewsTtItemAdapter;
+import cn.com.zol.app.zolclientandroid.module1.bean.Headline;
+import cn.com.zol.app.zolclientandroid.module1.utils.PublicStringRequestUtils;
 
 /**
  * Created by liyiwei on 2016/2/3.
  */
-public class Module5_pc extends BaseFragment
+public class Module5_pc extends NewsChildBaseFragment
 {
-    private Button zoomInBtn;
-    private Button zoomOutBtn;
-    private TextView testView;
+
+    private List<Headline.ListEntity> listEntityList;
+    private FragNewsTtItemAdapter itemAdapter;
 
     @Override
-    protected int getLayout()
+    protected void sendDataRequest()
     {
-        return R.layout.fragment_news_pingce;
-    }
-
-    @Override
-    protected void initView()
-    {
-        zoomInBtn = (Button) getActivity().findViewById(R.id.fragment_news_pingce_zoom_in_btn);
-        zoomOutBtn = (Button) getActivity().findViewById(R.id.fragment_news_pingce_zoom_out_btn);
-        testView = (TextView) getActivity().findViewById(R.id.fragment_news_pingce_test_tv);
-
+        /**
+         * 请求头条UI所需要展示的数据
+         */
+        PublicStringRequestUtils requestUtils = new PublicStringRequestUtils(this);
+        requestUtils.request("2");
     }
 
     @Override
-    protected void initEvent()
+    protected void addListViewBody()
     {
-        zoomInBtn.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                zoomIn(testView);
-            }
-        });
-        zoomOutBtn.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                zoomOut(testView);
-            }
-        });
+        View inflate = getActivity().getLayoutInflater().inflate(R.layout.frag_news_pc_header, null);
+        getListView().addHeaderView(inflate);
     }
 
     @Override
-    protected void initData()
+    protected void addListViewHeader()
     {
+        listEntityList = new ArrayList<>();
+        itemAdapter = new FragNewsTtItemAdapter(getActivity(), listEntityList);
+        getListView().setDividerHeight(0);
+        setListAdapter(itemAdapter);
 
     }
 
-    /**
-     * 放大动画
-     *
-     * @param view
-     */
-    private void zoomIn(View view)
+    @Override
+    public void stringRequestResult(String response)
     {
-        ScaleAnimation animation = new ScaleAnimation(1.0f
-                , 1.4f
-                , 1.0f
-                , 1.4f
-                , Animation.RELATIVE_TO_SELF
-                , 0.5f
-                , Animation.RELATIVE_TO_SELF
-                , 0.5f);
-        animation.setDuration(500);
-////        animation.setRepeatCount(2);
-        animation.setFillAfter(true);
-////        animation.setStartOffset(1000);
-        view.setAnimation(animation);
-        view.startAnimation(animation);
-        LogUtils.e("控件放大执行完毕!");
-    }
+//        LogUtils.e("评测模块请求数据成功!response=" + response);
+//        Logger.json(response);
 
-    /**
-     * 缩小动画
-     *
-     * @param view
-     */
-    private void zoomOut(View view)
-    {
-        ScaleAnimation animation = new ScaleAnimation(1.4f
-                , 1.0f
-                , 1.4f
-                , 1.0f
-                , Animation.RELATIVE_TO_SELF
-                , 0.5f
-                , Animation.RELATIVE_TO_SELF
-                , 0.5f);
-        animation.setDuration(500);
-////        animation.setRepeatCount(2);
-        animation.setFillAfter(true);
-////        animation.setStartOffset(1000);
-        view.setAnimation(animation);
-        view.startAnimation(animation);
-        LogUtils.e("控件缩小执行完毕!");
+        List<Headline.ListEntity> listEntityList = Headline.ListEntity.arrayListEntityFromData(response, "list");
+        this.listEntityList.addAll(listEntityList);
+        itemAdapter.notifyDataSetChanged();
+
     }
 }

@@ -72,7 +72,7 @@
             android:id="@+id/frag_news_xw_item_comment_down_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/frag_news_xw_item_comment_down"
+            android:text="@string/comment"
             android:textColor="#ababab"
             android:visibility="gone"/>
 

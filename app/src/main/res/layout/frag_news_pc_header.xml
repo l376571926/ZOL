@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/frag_news_pc_header_all_tv"
+        style="@style/frag_news_pc_header_tv_item"
+        android:text="全部" />
+
+    <TextView
+        android:id="@+id/frag_news_pc_header_sj_tv"
+        style="@style/frag_news_pc_header_tv_item"
+        android:text="手机" />
+
+    <TextView
+        android:id="@+id/frag_news_pc_header_pb_tv"
+        style="@style/frag_news_pc_header_tv_item"
+        android:text="平板电脑" />
+
+    <TextView
+        android:id="@+id/frag_news_pc_header_bjb_tv"
+        style="@style/frag_news_pc_header_tv_item"
+        android:text="笔记本" />
+
+
+    <ImageView
+        android:id="@+id/frag_news_pc_header_ahead_iv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@drawable/icon_arrow_right" />
+
+
+</LinearLayout>

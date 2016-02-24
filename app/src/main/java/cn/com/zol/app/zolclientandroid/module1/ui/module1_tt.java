@@ -1,9 +1,6 @@
 package cn.com.zol.app.zolclientandroid.module1.ui;
 
 import android.graphics.Color;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ListFragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -28,36 +25,33 @@ import cn.com.zol.app.zolclientandroid.other.MyApplication;
  * 头条模块
  * Created by liyiwei on 2016/2/3.
  */
-public class Module1_tt extends ListFragment implements PublicStringRequestUtils.OnDataChangeListener
+public class Module1_tt extends NewsChildBaseFragment
 {
-    private List<RelativeLayout> relativeLayoutList = new ArrayList<>();
+    private List<RelativeLayout> relativeLayoutList;
     private PagerAdapter bannerAdapter;
-    private List<Headline.ListEntity> listEntities;// = new ArrayList<>();
+    private List<Headline.ListEntity> listEntities;
     private FragNewsTtItemAdapter itemAdapter;
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState)
+    protected void sendDataRequest()
     {
-        super.onActivityCreated(savedInstanceState);
-
-        PublicStringRequestUtils requestUtils = new PublicStringRequestUtils(this);
         /**
          * 请求头条所需展示的数据
          */
-        requestUtils.request("0", "0");
-
-        addListViewHeader();
-        addListViewBody();
+        PublicStringRequestUtils requestUtils = new PublicStringRequestUtils(this);
+        requestUtils.request("0");
     }
 
     /**
      * 显示ViewPager横幅广告
      */
-    private void addListViewHeader()
+    @Override
+    protected void addListViewHeader()
     {
         View inflate = getActivity().getLayoutInflater().inflate(R.layout.frag_news_public_lv_header, null);
         ViewPager viewPager = ((ViewPager) inflate.findViewById(R.id.frag_news_public_lv_header_container_vp));
 
+        relativeLayoutList = new ArrayList<>();
         bannerAdapter = new PagerAdapter()
         {
             @Override
@@ -92,7 +86,8 @@ public class Module1_tt extends ListFragment implements PublicStringRequestUtils
     /**
      * 显示ListView中的数据
      */
-    private void addListViewBody()
+    @Override
+    protected void addListViewBody()
     {
         listEntities = new ArrayList<>();
         itemAdapter = new FragNewsTtItemAdapter(getActivity(), listEntities);
@@ -107,11 +102,12 @@ public class Module1_tt extends ListFragment implements PublicStringRequestUtils
     }
 
     @Override
-    public void setListViewData(String response)
+    public void stringRequestResult(String response)
     {
 //        LogUtils.e("头条模块请求数据成功!response=" + response);
 
         List<Headline.ListEntity> listEntityList = Headline.ListEntity.arrayListEntityFromData(response, "list");
+
         listEntities.addAll(listEntityList);
 
         updateBannerDate(response);

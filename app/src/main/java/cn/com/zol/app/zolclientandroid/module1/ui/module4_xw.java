@@ -14,8 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.toolbox.NetworkImageView;
-import com.lidroid.xutils.util.LogUtils;
-import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +45,7 @@ public class Module4_xw extends ListFragment implements PublicStringRequestUtils
          * 请求头条UI所需要展示的数据
          */
         PublicStringRequestUtils requestUtils = new PublicStringRequestUtils(this);
-        requestUtils.request("1", "0");
+        requestUtils.request("1");
 
         addListViewHeader();
         addListViewBody();
@@ -110,10 +108,10 @@ public class Module4_xw extends ListFragment implements PublicStringRequestUtils
     }
 
     @Override
-    public void setListViewData(String response)
+    public void stringRequestResult(String response)
     {
-        LogUtils.e("新闻模块请求数据成功!response=" + response);
-        Logger.json(response);
+//        LogUtils.e("新闻模块请求数据成功!response=" + response);
+//        Logger.json(response);
 
         updateBodyDate(response);
 
@@ -147,6 +145,9 @@ public class Module4_xw extends ListFragment implements PublicStringRequestUtils
             String imgsrc = picsEntity.getImgsrc();
             String stitle = picsEntity.getStitle();
 
+            /**
+             * 这句不能提取出去，否则会报错
+             */
             View layout = getActivity().getLayoutInflater().inflate(R.layout.frag_news_tt_lv_header, null);
 
             RelativeLayout relativeLayout = (RelativeLayout) layout.findViewById(R.id.container);
@@ -154,7 +155,6 @@ public class Module4_xw extends ListFragment implements PublicStringRequestUtils
             TextView textView = (TextView) layout.findViewById(R.id.frag_news_tt_lv_header_title_tv);
 
             imageView.setImageUrl(imgsrc, MyApplication.imageLoader);
-
             textView.setTextColor(Color.WHITE);
             textView.setText(stitle);
 

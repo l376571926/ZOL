@@ -30,7 +30,7 @@ public class Module2_rb extends ListFragment implements PublicStringRequestUtils
         /**
          * 请求热榜所需展示的数据
          */
-        requestUtils.request("8", "1");
+        requestUtils.request("8");
 
         addListViewHeader();
         addListViewBody();
@@ -63,7 +63,7 @@ public class Module2_rb extends ListFragment implements PublicStringRequestUtils
     }
 
     @Override
-    public void setListViewData(String response)
+    public void stringRequestResult(String response)
     {
 //        LogUtils.e("热榜模块请求数据成功!response=" + response);
 
